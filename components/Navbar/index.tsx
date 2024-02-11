@@ -1,15 +1,10 @@
 'use client';
 
-import React, {
-  LegacyRef,
-  MutableRefObject,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { NAVIGATION_LINKS } from '@/constants';
 import Image from 'next/image';
-import { AnimatePresence, motion } from 'framer-motion';
+import MobileSidebarNavigation from './components/MobileSidebarNavigation';
+import { AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [isMobileNavbarOpen, setIsMobileNavbarOpen] = useState(false);
@@ -61,6 +56,7 @@ const Navbar = () => {
         {/* Desktop Navbar List */}
         <ul className="hidden md:flex md:flex-row md:items-center gap-8">
           {NAVIGATION_LINKS.map((navLink) => (
+            //TODO: Add mechanism to smooth scroll to each section
             <li
               key={`nav-link-${navLink.title}`}
               className="list-none md:text-body-p2-regular lg:text-body-p1-regular text-gray-750 cursor-pointer hover:text-gray-800 hover:font-semibold transition-all duration-100"
@@ -70,14 +66,14 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Dark Mode System: Desktop */}
+        {/* //TODO: Dark Mode System: Desktop */}
         <div className="hidden md:flex flex-row items-center justify-center">
           <h1 className="text-gray-850 font-bold text-xl lg:text-2xl">
             Dark Mode Desktop
           </h1>
         </div>
 
-        {/* Mobile Dark Mode & Hamburger Menu */}
+        {/* //TODO: Mobile Dark Mode & Hamburger Menu */}
         <div className="flex flex-row items-center gap-3 sm:gap-5 md:hidden">
           <h1 className="text-gray-850 font-bold text-lg">Dark Mode Mobile</h1>
           {/* Mobile Navbar Burger Menu */}
@@ -110,46 +106,13 @@ const Navbar = () => {
       {/* Mobile Navbar List Item */}
       <AnimatePresence>
         {!!isMobileNavbarOpen && (
-          <motion.div
-            className="fixed top-[72px] bottom-0 right-0 left-28 xs:left-32 sm:left-56 bg-gray-850 md:hidden origin-right"
-            variants={{
-              initial: {
-                scaleX: 0,
-              },
-              animate: {
-                scaleX: 1,
-                transition: {
-                  duration: 0.3,
-                  // ease: [0.12, 0, 0.39, 0],
-                },
-              },
-              exit: {
-                scaleX: 0,
-                transition: {
-                  duration: 0.3,
-                  // ease: [0.22, 1, 0.36, 1],
-                },
-              },
+          <MobileSidebarNavigation
+            mobileNavbarSidebarRef={mobileNavbarSidebarRef}
+            onClickNavbarItem={() => {
+              //TODO: Add mechanism to smooth scroll to each section
+              setIsMobileNavbarOpen(false);
             }}
-            initial="initial"
-            exit="exit"
-            animate="animate"
-            ref={mobileNavbarSidebarRef}
-          >
-            <div className="p-6 w-full h-full">
-              <ul className="flex flex-col items-start gap-5">
-                {NAVIGATION_LINKS.map((navLink) => (
-                  <li
-                    key={`nav-link-${navLink.title}`}
-                    className="list-none text-body-p2-regular text-gray-150 cursor-pointer hover:text-gray-50 hover:font-semibold transition-all duration-100"
-                    onClick={() => setIsMobileNavbarOpen(false)}
-                  >
-                    {navLink.title}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </motion.div>
+          />
         )}
       </AnimatePresence>
     </div>
