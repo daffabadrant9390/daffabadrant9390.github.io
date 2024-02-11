@@ -24,33 +24,27 @@
   }
 
   .text-body-p1-regular {
-    font-size: 18px;
-    font-weight: 400;
+    @apply text-[18px] font-[400];
   }
 
   .text-body-p1-semibold {
-    font-size: 18px;
-    font-weight: 600;
+    @apply text-[18px] font-semibold;
   }
 
   .text-body-p1-bold {
-    font-size: 18px;
-    font-weight: 900;
+    @apply text-[18px] font-bold;
   }
 
   .text-body-p2-regular {
-    font-size: 16px;
-    font-weight: 400;
+    @apply text-[16px] font-[400];
   }
 
   .text-body-p2-semibold {
-    font-size: 16px;
-    font-weight: 600;
+    @apply text-[16px] font-semibold;
   }
 
   .text-body-p2-bold {
-    font-size: 16px;
-    font-weight: 900;
+    @apply text-[16px] font-bold;
   }
 
   .text-headings-2 {
