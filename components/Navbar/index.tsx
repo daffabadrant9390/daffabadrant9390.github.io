@@ -61,10 +61,8 @@ const Navbar = () => {
   return (
     <div
       className={`w-full ${
-        !!isMobileNavbarOpen ? 'shadow-lg' : 'shadow-none'
-      } ${
-        isPageScrolled && 'shadow-lg'
-      } sticky top-0 bg-white z-40 transition-all duration-100`}
+        !!isMobileNavbarOpen || !!isPageScrolled ? 'shadow-lg' : 'shadow-none'
+      } sticky top-0 bg-white z-40`}
     >
       <div
         className={`max-container padding-container flex flex-row items-center justify-between py-3 md:py-5`}
