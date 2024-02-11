@@ -52,4 +52,32 @@
     font-size: 16px;
     font-weight: 900;
   }
+
+  .text-headings-2 {
+    @apply font-bold text-[48px] font-bitter;
+  }
+
+  .text-headings-4 {
+    @apply font-bold text-[32px] font-bitter;
+  }
+
+  .text-label-l1-regular {
+    @apply font-[400] text-[18px];
+  }
+
+  .text-label-l1-sb {
+    @apply font-semibold text-[18px];
+  }
+
+  .text-label-l3-regular {
+    @apply font-[400] text-[14px];
+  }
+
+  .btn-primary-light {
+    @apply bg-gray-850 hover:bg-gray-950 transition-all duration-200;
+  }
+}
+
+.h-hero-section-mobile {
+  height: calc(100vh - 72px);
 }

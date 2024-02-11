@@ -5,8 +5,11 @@ import { NAVIGATION_LINKS } from '@/constants';
 import Image from 'next/image';
 import MobileSidebarNavigation from './components/MobileSidebarNavigation';
 import { AnimatePresence } from 'framer-motion';
+import { useRouter } from 'next/navigation';
 
 const Navbar = () => {
+  const router = useRouter();
+  const [isPageScrolled, setIsPageScrolled] = useState(false);
   const [isMobileNavbarOpen, setIsMobileNavbarOpen] = useState(false);
   const mobileNavbarSidebarRef = useRef<HTMLDivElement>(null);
   const closeButtonSidebarRef = useRef<HTMLImageElement>(null);
@@ -43,18 +46,43 @@ const Navbar = () => {
     };
   }, [mobileNavbarSidebarRef]);
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          setIsPageScrolled(true);
+        } else {
+          setIsPageScrolled(false);
+        }
+      });
+    }
+  }, []);
+
   return (
     <div
-      className={`w-full ${!!isMobileNavbarOpen ? 'shadow-md' : 'shadow-none'}`}
+      className={`w-full ${
+        !!isMobileNavbarOpen ? 'shadow-lg' : 'shadow-none'
+      } ${
+        isPageScrolled && 'shadow-lg'
+      } sticky top-0 bg-white z-40 transition-all duration-100`}
     >
       <div
         className={`max-container padding-container flex flex-row items-center justify-between py-3 md:py-5`}
       >
-        <div className="relative w-12 h-12 flex-shrink-0 lg:w-14 ld:h-14">
+        <div
+          className="relative w-12 h-12 flex-shrink-0 lg:w-14 ld:h-14 cursor-pointer"
+          onClick={() => {
+            if (typeof window !== 'undefined') {
+              window.location.reload();
+            }
+
+            // router.refresh();
+          }}
+        >
           <Image src="/assets/logo-light.png" alt="Logo Image" fill />
         </div>
         {/* Desktop Navbar List */}
-        <ul className="hidden md:flex md:flex-row md:items-center gap-8">
+        <ul className="hidden lg:flex lg:flex-row lg:items-center [&>*:not(:last-child)]:mr-8">
           {NAVIGATION_LINKS.map((navLink) => (
             //TODO: Add mechanism to smooth scroll to each section
             <li
@@ -67,19 +95,19 @@ const Navbar = () => {
         </ul>
 
         {/* //TODO: Dark Mode System: Desktop */}
-        <div className="hidden md:flex flex-row items-center justify-center">
+        <div className="hidden lg:flex flex-row items-center justify-center">
           <h1 className="text-gray-850 font-bold text-xl lg:text-2xl">
             Dark Mode Desktop
           </h1>
         </div>
 
         {/* //TODO: Mobile Dark Mode & Hamburger Menu */}
-        <div className="flex flex-row items-center gap-3 sm:gap-5 md:hidden">
+        <div className="flex flex-row items-center gap-3 sm:gap-5 lg:hidden">
           <h1 className="text-gray-850 font-bold text-lg">Dark Mode Mobile</h1>
           {/* Mobile Navbar Burger Menu */}
           {!!isMobileNavbarOpen ? (
             <Image
-              className="flex flex-row items-center justify-center md:hidden"
+              className="flex flex-row items-center justify-center lg:hidden"
               id="close-btn-mobile"
               ref={closeButtonSidebarRef}
               alt="Close Menu Mobile"
@@ -93,7 +121,7 @@ const Navbar = () => {
             />
           ) : (
             <Image
-              className="flex flex-row items-center justify-center md:hidden"
+              className="flex flex-row items-center justify-center lg:hidden"
               alt="Hamburger Menu Mobile"
               src="/assets/hamburger-icon.svg"
               width={24}

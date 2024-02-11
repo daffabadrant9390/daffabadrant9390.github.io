@@ -8,11 +8,20 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        inter: ['var(--font-inter)'],
+        bitter: ['var(--font-bitter)'],
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'bg-hero': 'url(/assets/bg-hero.jpg)',
+        'bg-hero-50-opacity': 'url(/assets/bg-hero-50-opacity.jpg)',
       },
+      // backgroundPosition: {
+      //   'bottom-4': 'center bottom',
+      // },
       screens: {
         xs: '400px',
         '3xl': '1680px',
@@ -29,6 +38,7 @@ const config: Config = {
           650: '#4F5D75',
           750: '#444444',
           850: '#353535',
+          950: '#2B2B2B',
         },
         orange: {
           850: '#FCA311',

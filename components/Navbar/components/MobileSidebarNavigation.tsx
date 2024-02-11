@@ -12,9 +12,10 @@ const MobileSidebarNavigation = ({
   mobileNavbarSidebarRef,
   onClickNavbarItem,
 }: MobileSidebarNavigationProps) => {
+  console.log('Should show this');
   return (
     <motion.div
-      className="fixed top-[72px] bottom-0 right-0 left-28 xs:left-32 sm:left-56 bg-gray-850 md:hidden origin-right"
+      className="fixed top-[72px] bottom-0 right-0 left-28 xs:left-32 sm:left-56 bg-gray-850 lg:hidden origin-right z-50"
       variants={{
         initial: {
           scaleX: 0,
@@ -40,7 +41,7 @@ const MobileSidebarNavigation = ({
       ref={mobileNavbarSidebarRef}
     >
       <div className="p-6 w-full h-full">
-        <ul className="flex flex-col items-start gap-5">
+        <ul className="flex flex-col items-start [&>*:not(:last-child)]:mb-5">
           {NAVIGATION_LINKS.map((navLink) => (
             <li
               key={`nav-link-${navLink.title}`}

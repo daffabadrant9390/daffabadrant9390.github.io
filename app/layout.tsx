@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Bitter } from 'next/font/google';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const bitter = Bitter({ subsets: ['latin'], variable: '--font-bitter' });
 
 export const metadata: Metadata = {
   title: 'M. Daffa Badran Thoriq | Personal Portfolio',
@@ -17,7 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`relative overflow-hidden ${inter.className}`}>
+      <body
+        className={`relative overflow-x-hidden ${inter.variable} ${bitter.variable} font-inter`}
+      >
         {children}
       </body>
     </html>
