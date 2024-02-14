@@ -65,7 +65,7 @@ const Navbar = () => {
       } sticky top-0 bg-white z-40`}
     >
       <div
-        className={`max-container padding-container flex flex-row items-center justify-between py-3 md:py-5`}
+        className={`max-container padding-container flex flex-row items-center justify-between py-3 lg:py-5`}
       >
         <div
           className="relative w-12 h-12 flex-shrink-0 lg:w-14 ld:h-14 cursor-pointer"
