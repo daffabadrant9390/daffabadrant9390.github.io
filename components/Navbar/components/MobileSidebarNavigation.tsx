@@ -41,7 +41,7 @@ const MobileSidebarNavigation = ({
       ref={mobileNavbarSidebarRef}
     >
       <div className="p-6 w-full h-full">
-        <ul className="flex flex-col items-start [&>*:not(:last-child)]:mb-5">
+        <ul className="flex flex-col items-start [&>*:not(:last-child)]:mb-8">
           {NAVIGATION_LINKS.map((navLink) => (
             <li
               key={`nav-link-${navLink.title}`}

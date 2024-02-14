@@ -47,12 +47,44 @@
     @apply text-[16px] font-bold;
   }
 
+  .text-body-p3-regular {
+    @apply text-[14px] font-[400];
+  }
+
+  .text-body-p3-semibold {
+    @apply text-[14px] font-semibold;
+  }
+
+  .text-body-p3-bold {
+    @apply text-[14px] font-bold;
+  }
+
+  .text-body-p4-regular {
+    @apply text-[12px] font-[400];
+  }
+
+  .text-body-p4-semibold {
+    @apply text-[12px] font-semibold;
+  }
+
+  .text-body-p4-bold {
+    @apply text-[12px] font-bold;
+  }
+
   .text-headings-2 {
     @apply font-bold text-[48px] font-bitter;
   }
 
   .text-headings-4 {
     @apply font-bold text-[32px] font-bitter;
+  }
+
+  .text-headings-5 {
+    @apply font-bold text-[24px] font-bitter;
+  }
+
+  .text-headings-6 {
+    @apply font-bold text-[18px] font-bitter;
   }
 
   .text-label-l1-regular {
@@ -68,10 +100,24 @@
   }
 
   .btn-primary-light {
-    @apply bg-gray-850 hover:bg-gray-950 transition-all duration-200;
+    @apply bg-gray-850 hover:bg-gray-950 hover:text-white transition-all duration-200;
+  }
+
+  .btn-secondary-light {
+    @apply bg-orange-850 hover:bg-orange-950 hover:text-white transition-all duration-200;
+  }
+
+  .btn-tertiary-light {
+    @apply bg-gray-50 hover:bg-gray-400 hover:text-black transition-all duration-200;
   }
 }
 
-.h-hero-section-mobile {
+.h-hero-section {
   height: calc(100vh - 72px);
+}
+
+@media (min-width: 1024px) {
+  .h-hero-section {
+    height: calc(100vh - 88px);
+  }
 }

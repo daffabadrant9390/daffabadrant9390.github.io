@@ -18,6 +18,9 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'bg-hero': 'url(/assets/bg-hero.jpg)',
         'bg-hero-50-opacity': 'url(/assets/bg-hero-50-opacity.jpg)',
+        'bg-about-me': 'url(/assets/bg-about-me.jpg)',
+        'bg-tree': 'url(/assets/bg-tree.jpg)',
+        'bg-collaborations': 'url(/assets/bg-collaborations.jpg)',
       },
       // backgroundPosition: {
       //   'bottom-4': 'center bottom',
@@ -30,6 +33,7 @@ const config: Config = {
       colors: {
         blue: {
           750: '#284B63',
+          790: '#25475E',
           850: '#2D3142',
         },
         gray: {
@@ -42,6 +46,7 @@ const config: Config = {
         },
         orange: {
           850: '#FCA311',
+          950: '#E28D00',
         },
         green: {
           750: '#3C6E71',
