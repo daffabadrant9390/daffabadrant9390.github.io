@@ -53,6 +53,7 @@ const Button = ({
             ? 'px-7 py-2 lg:py-3'
             : 'px-8 py-3 lg:py-4'
         }
+        ${fullWidth && 'w-full'}
         flex flex-row items-center justify-center gap-2 md:gap-3 lg:gap-4
       `}
       onClick={onClick}

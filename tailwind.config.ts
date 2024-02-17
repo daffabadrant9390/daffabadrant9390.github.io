@@ -21,6 +21,10 @@ const config: Config = {
         'bg-about-me': 'url(/assets/bg-about-me.jpg)',
         'bg-tree': 'url(/assets/bg-tree.jpg)',
         'bg-collaborations': 'url(/assets/bg-collaborations.jpg)',
+        'bg-project-1': 'url(/assets/bg-project-1.jpg)',
+        'bg-project-2': 'url(/assets/bg-project-2.jpg)',
+        'bg-project-3': 'url(/assets/bg-project-3.jpg)',
+        'bg-project-4': 'url(/assets/bg-project-4.jpg)',
       },
       // backgroundPosition: {
       //   'bottom-4': 'center bottom',
@@ -39,6 +43,7 @@ const config: Config = {
         gray: {
           50: '#D9D9D9',
           150: '#BFC0C0',
+          550: '#BDBDBD',
           650: '#4F5D75',
           750: '#444444',
           850: '#353535',

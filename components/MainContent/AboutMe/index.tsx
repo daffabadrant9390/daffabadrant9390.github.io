@@ -7,7 +7,7 @@ const AboutMe = () => {
       title="About Me"
       subtitle="Platea cum diam lobortis sed in. In praesent magnis venenatis non viverra nisi."
       theme="light"
-      // backgroundImage={'bg-about-me'}
+      backgroundImage={'bg-bg-about-me'}
     >
       <h1>About Me</h1>
     </CommonContentLayout>

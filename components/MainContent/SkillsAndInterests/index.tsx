@@ -9,7 +9,6 @@ const SkillsAndInterests = () => {
       title="Skillsets & Expertise"
       subtitle="Platea cum diam lobortis sed in. In praesent magnis venenatis non viverra nisi."
       theme="light"
-      backgroundImage="bg-bg-about-me"
     >
       {/* Expertise & Skillset Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5 lg:gap-8 place-content-center">
