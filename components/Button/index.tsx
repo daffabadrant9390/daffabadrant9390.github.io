@@ -8,6 +8,7 @@ type ButtonProps = {
   fullWidth?: boolean;
   iconElement?: JSX.Element;
   onClick?: () => void;
+  customClassName?: string;
 };
 
 const Button = ({
@@ -17,6 +18,7 @@ const Button = ({
   children,
   fullWidth,
   iconElement,
+  customClassName,
   onClick,
 }: ButtonProps) => {
   return (
@@ -55,6 +57,7 @@ const Button = ({
         }
         ${fullWidth && 'w-full'}
         flex flex-row items-center justify-center gap-2 md:gap-3 lg:gap-4
+        ${customClassName}
       `}
       onClick={onClick}
     >

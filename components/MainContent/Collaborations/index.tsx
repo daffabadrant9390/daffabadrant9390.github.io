@@ -32,7 +32,7 @@ const Collaborations = () => {
               aliquam ultrices cursus. Eget massa netus massa amet feugiat sed
               elementum gravida nisi
             </p>
-            <div className="mb-5 lg:mb-8 flex flex-col md:flex-row [&>*:not(:last-child)]:mb-5 [&>*:not(:last-child)]:md:mb-0 [&>*:not(:last-child)]:md:mr-3 [&>*:not(:last-child)]:lg:mr-6">
+            <div className="mb-5 w-full md:w-fit lg:mb-8 flex flex-col md:flex-row gap-3 md:gap-4 lg:gap-6">
               <Button
                 type="secondary"
                 theme="light"

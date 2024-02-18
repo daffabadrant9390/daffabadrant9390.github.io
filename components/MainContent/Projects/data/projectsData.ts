@@ -4,9 +4,15 @@ type ProjectsDataItem = {
   imageUrl: string;
   linkToProject: string;
   linkToGithub: string;
+  projectType: ProjectType;
 };
 
 type ProjectsData = ProjectsDataItem[];
+export type ProjectType =
+  | 'web-development'
+  | 'data-analytics'
+  | 'ui-ux-design'
+  | 'mobile-app-development';
 
 export const projectsData: ProjectsData = [
   {
@@ -16,6 +22,7 @@ export const projectsData: ProjectsData = [
     imageUrl: '/assets/bg-project-1.jpg',
     linkToProject: '', //TODO: TBD
     linkToGithub: '', //TODO: TBD
+    projectType: 'web-development',
   },
   {
     title: 'Threads Clone Next Js',
@@ -24,6 +31,7 @@ export const projectsData: ProjectsData = [
     imageUrl: '/assets/bg-project-2.jpg',
     linkToProject: '', //TODO: TBD
     linkToGithub: '', //TODO: TBD
+    projectType: 'mobile-app-development',
   },
   {
     title: 'Trello V2 Clone Next Js and GPT-4',
@@ -32,6 +40,7 @@ export const projectsData: ProjectsData = [
     imageUrl: '/assets/bg-project-3.jpg',
     linkToProject: '', //TODO: TBD
     linkToGithub: '', //TODO: TBD
+    projectType: 'ui-ux-design',
   },
   {
     title: 'Marketplace Price Tracker Next Js',
@@ -40,5 +49,6 @@ export const projectsData: ProjectsData = [
     imageUrl: '/assets/bg-project-4.jpg',
     linkToProject: '', //TODO: TBD
     linkToGithub: '', //TODO: TBD
+    projectType: 'data-analytics',
   },
 ];
