@@ -110,6 +110,10 @@
   .btn-tertiary-light {
     @apply bg-gray-50 hover:bg-gray-400 hover:text-black transition-all duration-200;
   }
+
+  .vertical-divider {
+    @apply w-0.5 h-8 md:h-10 bg-black;
+  }
 }
 
 .h-hero-section {
