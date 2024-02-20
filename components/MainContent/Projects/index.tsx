@@ -4,7 +4,6 @@ import CommonContentLayout from '@/components/CommonContentLayout';
 import React, { useMemo } from 'react';
 import { projectsData } from './data/projectsData';
 import ProjectsCard from './components/ProjectsCard';
-import Button from '@/components/Button';
 import { useRouter } from 'next/navigation';
 
 const MAX_SHOW_PROJECTS = 4;
@@ -55,7 +54,7 @@ const Projects = () => {
 
         {projectsData.length > MAX_SHOW_PROJECTS && (
           <button
-            className="w-full rounded-md bg-gray-50 py-2 md:py-3 lg:py-4 border-none text-body-p2-semibold lg:text-body-p1-semibold text-gray-850 hover:bg-gray-150 hover:text-black transition-all duration-300"
+            className="w-full rounded-sm bg-gray-50 py-3 lg:py-4 border-none text-body-p2-semibold lg:text-body-p1-semibold text-gray-850 hover:bg-gray-150 hover:text-black transition-all duration-300"
             onClick={() => router.push('/my-projects')}
           >
             Show all projects
