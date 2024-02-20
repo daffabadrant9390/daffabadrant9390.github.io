@@ -39,7 +39,7 @@ const ProjectsCard = ({
             />
           </div>
           <span
-            className={`w-fit px-2 py-[2px] lg:px-4 rounded-sm text-body-p3-regular lg:text-body-p2-regular
+            className={`w-fit px-2 py-[2px] lg:px-4 rounded-sm text-body-p5-regular lg:text-body-p4-regular
               ${
                 projectType === 'web-development'
                   ? 'bg-red-300 text-red-700 border border-red-800'
@@ -79,7 +79,7 @@ const ProjectsCard = ({
               iconElement={
                 <FontAwesomeIcon
                   icon={faPushed}
-                  color="gray"
+                  color="white"
                   className="w-4 h-4 lg:w-6 lg:h-6"
                 />
               }

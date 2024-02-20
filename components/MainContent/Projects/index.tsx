@@ -1,7 +1,7 @@
 'use client';
 
 import CommonContentLayout from '@/components/CommonContentLayout';
-import React from 'react';
+import React, { useMemo } from 'react';
 import { projectsData } from './data/projectsData';
 import ProjectsCard from './components/ProjectsCard';
 import Button from '@/components/Button';
@@ -12,6 +12,13 @@ const MAX_SHOW_PROJECTS = 4;
 const Projects = () => {
   const router = useRouter();
 
+  const finalProjectsData = useMemo(() => {
+    if (Array.isArray(projectsData) && !!projectsData.length) {
+      return projectsData.slice(0, MAX_SHOW_PROJECTS);
+    } else {
+      return [];
+    }
+  }, []);
   return (
     <CommonContentLayout
       title="Latest Projects"
@@ -21,7 +28,7 @@ const Projects = () => {
     >
       <div className="w-full flex flex-col items-start gap-6 lg:gap-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
-          {projectsData.map((projectDataItem, idx) => {
+          {finalProjectsData.map((projectDataItem, idx) => {
             const {
               title,
               description,

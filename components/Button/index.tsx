@@ -53,10 +53,10 @@ const Button = ({
             ? 'px-6 py-1 lg:py-2'
             : size === 'medium'
             ? 'px-7 py-2 lg:py-3'
-            : 'px-8 py-3 lg:py-4'
+            : 'px-6 lg:px-8 py-2 md:py-3 lg:py-4'
         }
         ${fullWidth && 'w-full'}
-        flex flex-row items-center justify-center gap-2 md:gap-3 lg:gap-4
+        flex flex-row items-center justify-center gap-3 md:gap-4 lg:gap-5
         ${customClassName}
       `}
       onClick={onClick}
