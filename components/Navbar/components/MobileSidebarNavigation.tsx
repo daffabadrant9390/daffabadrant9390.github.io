@@ -1,16 +1,21 @@
 'use client';
 
 import { NAVIGATION_LINKS } from '@/constants';
+import { NavigationDataItem } from '@/helpers';
 import { AnimatePresence, motion } from 'framer-motion';
 
 type MobileSidebarNavigationProps = {
   mobileNavbarSidebarRef: React.RefObject<HTMLDivElement>;
-  onClickNavbarItem: () => void;
+  menuData: NavigationDataItem[];
+  activeNavLinkIdx: number;
+  onClickNavbarItem: (navLinkIdx: number) => void;
 };
 
 const MobileSidebarNavigation = ({
   mobileNavbarSidebarRef,
   onClickNavbarItem,
+  menuData,
+  activeNavLinkIdx,
 }: MobileSidebarNavigationProps) => {
   console.log('Should show this');
   return (
@@ -32,6 +37,7 @@ const MobileSidebarNavigation = ({
           transition: {
             duration: 0.3,
             // ease: [0.22, 1, 0.36, 1],
+            // delay: 0.75, // To make sure the scroll smooth complete first before close the navbar
           },
         },
       }}
@@ -42,11 +48,18 @@ const MobileSidebarNavigation = ({
     >
       <div className="p-6 w-full h-full">
         <ul className="flex flex-col items-start [&>*:not(:last-child)]:mb-8">
-          {NAVIGATION_LINKS.map((navLink) => (
+          {menuData.map((navLink, idx) => (
             <li
               key={`nav-link-${navLink.title}`}
-              className="list-none text-body-p2-regular text-gray-150 cursor-pointer hover:text-gray-50 hover:font-semibold transition-all duration-100"
-              onClick={onClickNavbarItem}
+              className={`
+                list-none  cursor-pointer hover:font-semibold transition-all duration-100
+                ${
+                  idx === activeNavLinkIdx
+                    ? 'text-body-p2-semibold text-orange-850 underline'
+                    : 'text-body-p2-regular text-gray-150 hover:text-gray-50'
+                }
+              `}
+              onClick={() => onClickNavbarItem(idx)}
             >
               {navLink.title}
             </li>

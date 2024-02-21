@@ -1,14 +1,18 @@
 'use client';
 
 import CommonContentLayout from '@/components/CommonContentLayout';
-import React, { useMemo } from 'react';
+import React, { RefObject, useMemo } from 'react';
 import { projectsData } from './data/projectsData';
 import ProjectsCard from './components/ProjectsCard';
 import { useRouter } from 'next/navigation';
 
 const MAX_SHOW_PROJECTS = 4;
 
-const Projects = () => {
+type ProjectsSectionProps = {
+  projectsRef: RefObject<HTMLDivElement>;
+};
+
+const Projects = ({ projectsRef }: ProjectsSectionProps) => {
   const router = useRouter();
 
   const finalProjectsData = useMemo(() => {
@@ -24,6 +28,7 @@ const Projects = () => {
       subtitle="Platea cum diam lobortis sed in. In praesent magnis venenatis non viverra nisi."
       theme="light"
       // backgroundImage={'bg-bg-tree'}
+      customRefWrapper={projectsRef}
     >
       <div className="w-full flex flex-col items-start gap-6 lg:gap-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">

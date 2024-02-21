@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { RefObject } from 'react';
 import WorkExperienceCard from './components/WorkExperienceCard';
 import { workExperiencesData } from './data/workExperiencesData';
 
-const AboutMe = () => {
+type AboutMeSectionProps = {
+  aboutMeRef: RefObject<HTMLDivElement>;
+};
+
+const AboutMe = ({ aboutMeRef }: AboutMeSectionProps) => {
   return (
-    <div className="w-full bg-bg-about-me bg-cover bg-no-repeat bg-center py-6 lg:py-10">
+    <section
+      ref={aboutMeRef}
+      className="w-full bg-bg-about-me bg-cover bg-no-repeat bg-center py-6 lg:py-10"
+    >
       <div className="max-container padding-container flex flex-col md:flex-row items-start md:items-center gap-5 md:gap-10 lg:gap-12 xl:gap-16">
         {/* About Me Title, Subtitle and Description */}
         <div className="w-full flex-1 flex flex-col gap-5 lg:gap-6 items-center text-center lg:items-start md:text-left">
@@ -60,7 +67,7 @@ const AboutMe = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

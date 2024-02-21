@@ -6,11 +6,18 @@ import Image from 'next/image';
 import MobileSidebarNavigation from './components/MobileSidebarNavigation';
 import { AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/navigation';
+import { NavigationDataItem } from '@/helpers';
 
-const Navbar = () => {
+type NavbarProps = {
+  menuData: NavigationDataItem[];
+};
+
+const Navbar = ({ menuData }: NavbarProps) => {
   const router = useRouter();
   const [isPageScrolled, setIsPageScrolled] = useState(false);
   const [isMobileNavbarOpen, setIsMobileNavbarOpen] = useState(false);
+  const [activeNavLinkIdx, setActiveNavLinkIdx] = useState(0);
+
   const mobileNavbarSidebarRef = useRef<HTMLDivElement>(null);
   const closeButtonSidebarRef = useRef<HTMLImageElement>(null);
 
@@ -58,6 +65,57 @@ const Navbar = () => {
     }
   }, []);
 
+  useEffect(() => {
+    const scrollables = menuData.map(
+      (menuDataItemObj) => menuDataItemObj?.sectionRef?.current
+    );
+    const screenHeight = typeof window !== 'undefined' ? window.innerHeight : 0;
+
+    const updateActiveNavLinkObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          handleScrollAndUpdateActiveNavLinkIdx(entry);
+        });
+      },
+      {
+        rootMargin: `-72px 0px -${screenHeight - 72}px 0px`,
+        threshold: 0,
+      }
+    );
+
+    for (const scrollable of scrollables) {
+      if (!!scrollable) updateActiveNavLinkObserver.observe(scrollable);
+    }
+  }, [menuData]);
+
+  const handleClickNavLink = (navLinkIdx: number) => {
+    const navLinkSectionElement = menuData?.[navLinkIdx]?.sectionRef?.current;
+
+    if (!navLinkSectionElement) return;
+
+    if (typeof window !== 'undefined') {
+      window.scrollTo({
+        top: navLinkSectionElement?.offsetTop - 70,
+        left: 0,
+        behavior: 'smooth',
+      });
+    }
+  };
+
+  const handleScrollAndUpdateActiveNavLinkIdx = (
+    entry: IntersectionObserverEntry
+  ) => {
+    const { target, isIntersecting } = entry;
+
+    if (!!isIntersecting) {
+      menuData.forEach((menuDataItemObj, idx) => {
+        if (menuDataItemObj?.sectionRef?.current === target) {
+          setActiveNavLinkIdx(idx);
+        }
+      });
+    }
+  };
+
   return (
     <div
       className={`w-full ${
@@ -81,11 +139,18 @@ const Navbar = () => {
         </div>
         {/* Desktop Navbar List */}
         <ul className="hidden lg:flex lg:flex-row lg:items-center [&>*:not(:last-child)]:mr-8">
-          {NAVIGATION_LINKS.map((navLink) => (
-            //TODO: Add mechanism to smooth scroll to each section
+          {menuData.map((navLink, idx) => (
             <li
               key={`nav-link-${navLink.title}`}
-              className="list-none md:text-body-p2-regular lg:text-body-p1-regular text-gray-750 cursor-pointer hover:text-gray-800 hover:font-semibold transition-all duration-100"
+              className={`
+                list-none   cursor-pointer hover:font-semibold transition-all duration-100
+                ${
+                  idx === activeNavLinkIdx
+                    ? 'text-orange-850 underline md:text-body-p2-semibold lg:text-body-p1-semibold'
+                    : 'text-gray-750 hover:text-gray-800 md:text-body-p2-regular lg:text-body-p1-regular'
+                }
+              `}
+              onClick={() => handleClickNavLink(idx)}
             >
               {navLink.title}
             </li>
@@ -134,10 +199,12 @@ const Navbar = () => {
         {!!isMobileNavbarOpen && (
           <MobileSidebarNavigation
             mobileNavbarSidebarRef={mobileNavbarSidebarRef}
-            onClickNavbarItem={() => {
-              //TODO: Add mechanism to smooth scroll to each section
+            menuData={menuData}
+            onClickNavbarItem={(navLinkIdx: number) => {
+              handleClickNavLink(navLinkIdx);
               setIsMobileNavbarOpen(false);
             }}
+            activeNavLinkIdx={activeNavLinkIdx}
           />
         )}
       </AnimatePresence>

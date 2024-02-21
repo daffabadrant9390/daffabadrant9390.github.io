@@ -1,13 +1,36 @@
 import { PROFILE_NAME, PROFILE_SHORT_DESC } from '@/constants';
 import Image from 'next/image';
-import React from 'react';
+import React, { RefObject } from 'react';
 import Button from '../Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRocket, faFingerprint } from '@fortawesome/free-solid-svg-icons';
 
-const Hero = () => {
+type HeroSectionProps = {
+  heroRef: RefObject<HTMLDivElement>;
+  aboutMeRef: RefObject<HTMLDivElement>;
+  collaborationsRef: RefObject<HTMLDivElement>;
+};
+
+const Hero = ({ heroRef, aboutMeRef, collaborationsRef }: HeroSectionProps) => {
+  const handleClickButtonScroll = (refTarget: RefObject<HTMLDivElement>) => {
+    const refTargetElement = refTarget?.current;
+
+    if (!refTargetElement) return;
+
+    if (typeof window !== 'undefined') {
+      window.scrollTo({
+        top: refTargetElement?.offsetTop - 50,
+        left: 0,
+        behavior: 'smooth',
+      });
+    }
+  };
+
   return (
-    <section className="w-full h-hero-section bg-bg-hero-50-opacity bg-no-repeat bg-bottom bg-cover">
+    <section
+      ref={heroRef}
+      className="w-full h-hero-section bg-bg-hero-50-opacity bg-no-repeat bg-bottom bg-cover"
+    >
       <div className="max-container padding-container h-full flex flex-row items-center justify-center">
         <div className="flex flex-col justify-center items-center text-center [&>*:not(:last-child)]:mb-6 [&>*:not(:last-child)]:lg:mb-8">
           {/* Profile Image */}
@@ -45,6 +68,7 @@ const Hero = () => {
                   className="w-4 h-4 lg:w-6 lg:h-6 text-gray-50 transition-all duration-200"
                 />
               }
+              onClick={() => handleClickButtonScroll(aboutMeRef)}
             >
               Get Started
             </Button>
@@ -59,6 +83,7 @@ const Hero = () => {
                   className="w-4 h-4 lg:w-6 lg:h-6"
                 />
               }
+              onClick={() => handleClickButtonScroll(collaborationsRef)}
             >
               Let&lsquo;s Collaborate
             </Button>

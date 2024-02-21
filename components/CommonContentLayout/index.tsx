@@ -1,4 +1,5 @@
 import { ThemesOption } from '@/types';
+import { RefObject } from 'react';
 
 type CommonContentLayoutProps = {
   title: string;
@@ -6,6 +7,7 @@ type CommonContentLayoutProps = {
   theme?: ThemesOption;
   children: React.ReactNode;
   backgroundImage?: string;
+  customRefWrapper: RefObject<HTMLDivElement>;
 };
 
 const CommonContentLayout = ({
@@ -14,12 +16,14 @@ const CommonContentLayout = ({
   theme = 'light',
   children,
   backgroundImage,
+  customRefWrapper,
 }: CommonContentLayoutProps) => {
   return (
-    <div
+    <section
       className={`w-full ${
         backgroundImage ? `${backgroundImage} bg-cover bg-center` : ''
       }`}
+      ref={customRefWrapper}
     >
       <div className="max-container padding-container py-6 lg:py-10 flex flex-row items-center justify-center">
         <div className="flex flex-col justify-center items-center text-center [&>*:not(:last-child)]:mb-6 [&>*:not(:last-child)]:lg:mb-10">
@@ -35,7 +39,7 @@ const CommonContentLayout = ({
           {children}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

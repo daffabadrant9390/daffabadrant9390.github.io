@@ -1,16 +1,26 @@
-import React from 'react';
+import React, { RefObject } from 'react';
 import AboutMe from './AboutMe';
 import SkillsAndInterests from './SkillsAndInterests';
 import Projects from './Projects';
 import Collaborations from './Collaborations';
 
-const MainContent = () => {
+type MainContentProps = {
+  aboutMeRef: RefObject<HTMLDivElement>;
+  projectsRef: RefObject<HTMLDivElement>;
+  collaborationsRef: RefObject<HTMLDivElement>;
+};
+
+const MainContent = ({
+  aboutMeRef,
+  projectsRef,
+  collaborationsRef,
+}: MainContentProps) => {
   return (
     <>
-      <AboutMe />
+      <AboutMe aboutMeRef={aboutMeRef} />
       <SkillsAndInterests />
-      <Projects />
-      <Collaborations />
+      <Projects projectsRef={projectsRef} />
+      <Collaborations collaborationsRef={collaborationsRef} />
     </>
   );
 };

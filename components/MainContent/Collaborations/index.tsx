@@ -1,7 +1,7 @@
 'use client';
 
 import Button from '@/components/Button';
-import React from 'react';
+import React, { RefObject } from 'react';
 import {
   faPaperPlane,
   faFile,
@@ -17,9 +17,16 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { SOCIAL_MEDIA, SOCIAL_MEDIA_DATA } from '@/constants';
 
-const Collaborations = () => {
+type CollaborationsSectionProps = {
+  collaborationsRef: RefObject<HTMLDivElement>;
+};
+
+const Collaborations = ({ collaborationsRef }: CollaborationsSectionProps) => {
   return (
-    <div className="w-full bg-bg-collaborations bg-cover bg-left">
+    <section
+      ref={collaborationsRef}
+      className="w-full bg-bg-collaborations bg-cover bg-left"
+    >
       <div className="max-container padding-container py-6 md:py-10 lg:py-16">
         <div className="flex flex-row items-center justify-center lg:justify-start text-center lg:text-left">
           <div className="w-full md:max-w-[640px] flex flex-col items-center lg:items-start">
@@ -106,7 +113,7 @@ const Collaborations = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
