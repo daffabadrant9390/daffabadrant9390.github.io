@@ -19,7 +19,7 @@ const Hero = ({ heroRef, aboutMeRef, collaborationsRef }: HeroSectionProps) => {
 
     if (typeof window !== 'undefined') {
       window.scrollTo({
-        top: refTargetElement?.offsetTop - 50,
+        top: refTargetElement?.offsetTop - 72,
         left: 0,
         behavior: 'smooth',
       });

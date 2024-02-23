@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { NAVIGATION_LINKS } from '@/constants';
 import Image from 'next/image';
 import MobileSidebarNavigation from './components/MobileSidebarNavigation';
 import { AnimatePresence } from 'framer-motion';
@@ -133,8 +132,6 @@ const Navbar = ({ menuData }: NavbarProps) => {
             if (typeof window !== 'undefined') {
               window.location.reload();
             }
-
-            // router.refresh();
           }}
         >
           <Image src="/assets/logo-light.png" alt="Logo Image" fill />
