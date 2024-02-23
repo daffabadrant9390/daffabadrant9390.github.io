@@ -17,7 +17,6 @@ const MobileSidebarNavigation = ({
   menuData,
   activeNavLinkIdx,
 }: MobileSidebarNavigationProps) => {
-  console.log('Should show this');
   return (
     <motion.div
       className="fixed top-[72px] bottom-0 right-0 left-28 xs:left-32 sm:left-56 bg-gray-850 lg:hidden origin-right z-50"

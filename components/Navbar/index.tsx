@@ -7,6 +7,11 @@ import MobileSidebarNavigation from './components/MobileSidebarNavigation';
 import { AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { NavigationDataItem } from '@/helpers';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faBarsStaggered,
+  faCircleXmark,
+} from '@fortawesome/free-solid-svg-icons';
 
 type NavbarProps = {
   menuData: NavigationDataItem[];
@@ -34,13 +39,10 @@ const Navbar = ({ menuData }: NavbarProps) => {
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       const targetNode = e.target as Node;
-      const closeBtnEl = document.getElementById('close-btn-mobile');
-      const isNotCloseBtn = targetNode !== closeBtnEl;
 
       if (
         !!targetNode &&
-        !mobileNavbarSidebarRef.current?.contains(targetNode) &&
-        !!isNotCloseBtn
+        !mobileNavbarSidebarRef.current?.contains(targetNode)
       ) {
         setIsMobileNavbarOpen(false);
       }
@@ -168,28 +170,27 @@ const Navbar = ({ menuData }: NavbarProps) => {
         <div className="flex flex-row items-center gap-3 sm:gap-5 lg:hidden">
           <h1 className="text-gray-850 font-bold text-lg">Dark Mode Mobile</h1>
           {/* Mobile Navbar Burger Menu */}
-          {!!isMobileNavbarOpen ? (
-            <Image
-              className="flex flex-row items-center justify-center lg:hidden"
-              id="close-btn-mobile"
-              ref={closeButtonSidebarRef}
-              alt="Close Menu Mobile"
-              src="/assets/close-icon.svg"
-              width={24}
-              height={24}
-              onClick={(e) => {
-                console.log('You Click Close Button');
+          {/* TODO: Currently one of the icon should be wrapped with div. Need to find propper solution */}
+          {!isMobileNavbarOpen ? (
+            <div className="relative w-6 h-6 flex-shrink-0">
+              <FontAwesomeIcon
+                icon={faCircleXmark}
+                color="black"
+                className="w-6 h-6 lg:hidden"
+                id="close-btn-mobile"
+                onClick={() => {
+                  setIsMobileNavbarOpen(true);
+                }}
+              />
+            </div>
+          ) : (
+            <FontAwesomeIcon
+              icon={faBarsStaggered}
+              color="black"
+              className="w-6 h-6 lg:hidden"
+              onClick={() => {
                 setIsMobileNavbarOpen(false);
               }}
-            />
-          ) : (
-            <Image
-              className="flex flex-row items-center justify-center lg:hidden"
-              alt="Hamburger Menu Mobile"
-              src="/assets/hamburger-icon.svg"
-              width={24}
-              height={24}
-              onClick={() => setIsMobileNavbarOpen(true)}
             />
           )}
         </div>

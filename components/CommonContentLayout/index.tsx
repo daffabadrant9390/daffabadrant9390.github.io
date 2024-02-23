@@ -7,7 +7,7 @@ type CommonContentLayoutProps = {
   theme?: ThemesOption;
   children: React.ReactNode;
   backgroundImage?: string;
-  customRefWrapper: RefObject<HTMLDivElement>;
+  customRefWrapper?: RefObject<HTMLDivElement>;
 };
 
 const CommonContentLayout = ({
