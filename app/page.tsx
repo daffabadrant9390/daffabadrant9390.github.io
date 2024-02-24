@@ -6,9 +6,11 @@ import MainContent from '@/components/MainContent';
 import Navbar from '@/components/Navbar';
 import { generateNavbarData } from '@/helpers';
 import Image from 'next/image';
-import { useMemo, useRef } from 'react';
+import { useMemo, useRef, useState } from 'react';
 
 export default function Home() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
   const homeSectionRef = useRef<HTMLDivElement>(null);
   const aboutMeSectionRef = useRef<HTMLDivElement>(null);
   const myProjectsSectionRef = useRef<HTMLDivElement>(null);
@@ -28,11 +30,13 @@ export default function Home() {
     collaborationsSectionRef,
   ]);
 
-  console.log('generatedNavbarMenuData: ', generatedNavbarMenuData);
-
   return (
-    <>
-      <Navbar menuData={generatedNavbarMenuData} />
+    <main className={`${!!isDarkMode && 'dark'}`}>
+      <Navbar
+        menuData={generatedNavbarMenuData}
+        isDarkMode={isDarkMode}
+        onUpdateDarkModeState={() => setIsDarkMode(!isDarkMode)}
+      />
       <Hero
         heroRef={homeSectionRef}
         aboutMeRef={aboutMeSectionRef}
@@ -44,6 +48,6 @@ export default function Home() {
         collaborationsRef={collaborationsSectionRef}
       />
       <Footer />
-    </>
+    </main>
   );
 }

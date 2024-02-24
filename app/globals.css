@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer utilities {
+  * {
+    @apply transition-colors duration-200;
+  }
+
   .max-container {
     @apply mx-auto max-w-[1440px];
   }

@@ -36,6 +36,7 @@ const config: Config = {
       },
       colors: {
         blue: {
+          650: '#404D63',
           750: '#284B63',
           790: '#25475E',
           850: '#2D3142',
@@ -59,6 +60,7 @@ const config: Config = {
       },
     },
   },
+  darkMode: 'class',
   plugins: [],
 };
 export default config;

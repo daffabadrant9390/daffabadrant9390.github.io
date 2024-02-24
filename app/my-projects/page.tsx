@@ -11,7 +11,8 @@ import { useRouter } from 'next/navigation';
 const MyProjectsPage = () => {
   const router = useRouter();
   const handleClickBack = () => {
-    router.back();
+    // Return back to first page
+    router.push('/');
   };
   return (
     <section className="max-container padding-container py-[40px] lg:py-[80px] bg-white">

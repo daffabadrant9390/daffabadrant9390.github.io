@@ -10,13 +10,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faBarsStaggered,
   faCircleXmark,
+  faMoon,
+  faSun,
 } from '@fortawesome/free-solid-svg-icons';
 
 type NavbarProps = {
   menuData: NavigationDataItem[];
+  isDarkMode: boolean;
+  onUpdateDarkModeState: () => void;
 };
 
-const Navbar = ({ menuData }: NavbarProps) => {
+const Navbar = ({
+  menuData,
+  isDarkMode,
+  onUpdateDarkModeState,
+}: NavbarProps) => {
   const router = useRouter();
   const [isPageScrolled, setIsPageScrolled] = useState(false);
   const [isMobileNavbarOpen, setIsMobileNavbarOpen] = useState(false);
@@ -121,7 +129,7 @@ const Navbar = ({ menuData }: NavbarProps) => {
     <div
       className={`w-full ${
         !!isMobileNavbarOpen || !!isPageScrolled ? 'shadow-lg' : 'shadow-none'
-      } sticky top-0 bg-white z-40`}
+      } sticky top-0 bg-white dark:bg-blue-850 z-40`}
     >
       <div
         className={`max-container padding-container flex flex-row items-center justify-between py-3 lg:py-5`}
@@ -134,7 +142,11 @@ const Navbar = ({ menuData }: NavbarProps) => {
             }
           }}
         >
-          <Image src="/assets/logo-light.png" alt="Logo Image" fill />
+          {!!isDarkMode ? (
+            <Image src="/assets/logo-dark.png" alt="Logo Image Light" fill />
+          ) : (
+            <Image src="/assets/logo-light.png" alt="Logo Image Light" fill />
+          )}
         </div>
         {/* Desktop Navbar List */}
         <ul className="hidden lg:flex lg:flex-row lg:items-center [&>*:not(:last-child)]:mr-8">
@@ -142,11 +154,11 @@ const Navbar = ({ menuData }: NavbarProps) => {
             <li
               key={`nav-link-${navLink.title}`}
               className={`
-                list-none   cursor-pointer hover:font-semibold transition-all duration-100
+                list-none cursor-pointer transition-all duration-200
                 ${
                   idx === activeNavLinkIdx
                     ? 'text-orange-850 underline md:text-body-p2-semibold lg:text-body-p1-semibold'
-                    : 'text-gray-750 hover:text-gray-800 md:text-body-p2-regular lg:text-body-p1-regular'
+                    : 'text-gray-750 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white md:text-body-p2-regular lg:text-body-p1-regular'
                 }
               `}
               onClick={() => handleClickNavLink(idx)}
@@ -156,23 +168,29 @@ const Navbar = ({ menuData }: NavbarProps) => {
           ))}
         </ul>
 
-        {/* //TODO: Dark Mode System: Desktop */}
         <div className="hidden lg:flex flex-row items-center justify-center">
-          <h1 className="text-gray-850 font-bold text-xl lg:text-2xl">
-            Dark Mode Desktop
-          </h1>
+          <FontAwesomeIcon
+            icon={isDarkMode ? faSun : faMoon}
+            color={isDarkMode ? 'yellow' : 'gray'}
+            className="w-10 h-10 cursor-pointer"
+            onClick={onUpdateDarkModeState}
+          />
         </div>
 
-        {/* //TODO: Mobile Dark Mode & Hamburger Menu */}
-        <div className="flex flex-row items-center gap-3 sm:gap-5 lg:hidden">
-          <h1 className="text-gray-850 font-bold text-lg">Dark Mode Mobile</h1>
+        <div className="flex flex-row items-center gap-5 sm:gap-8 lg:hidden">
+          <FontAwesomeIcon
+            icon={isDarkMode ? faSun : faMoon}
+            color={isDarkMode ? 'yellow' : 'gray'}
+            className="w-8 h-8 cursor-pointer"
+            onClick={onUpdateDarkModeState}
+          />
           {/* Mobile Navbar Burger Menu */}
           {/* TODO: Currently one of the icon should be wrapped with div. Need to find propper solution */}
           {!isMobileNavbarOpen ? (
             <div className="relative w-6 h-6 flex-shrink-0">
               <FontAwesomeIcon
-                icon={faCircleXmark}
-                color="black"
+                icon={faBarsStaggered}
+                color={!!isDarkMode ? 'white' : 'black'}
                 className="w-6 h-6 lg:hidden"
                 id="close-btn-mobile"
                 onClick={() => {
@@ -182,8 +200,8 @@ const Navbar = ({ menuData }: NavbarProps) => {
             </div>
           ) : (
             <FontAwesomeIcon
-              icon={faBarsStaggered}
-              color="black"
+              icon={faCircleXmark}
+              color={!!isDarkMode ? 'white' : 'black'}
               className="w-6 h-6 lg:hidden"
               onClick={() => {
                 setIsMobileNavbarOpen(false);
