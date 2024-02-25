@@ -29,10 +29,10 @@ const CommonContentLayout = ({
         <div className="flex flex-col justify-center items-center text-center [&>*:not(:last-child)]:mb-6 [&>*:not(:last-child)]:lg:mb-10">
           {/* Title and Subtitle */}
           <div className="w-full flex flex-col [&>*:not(:last-child)]:mb-2 [&>*:not(:last-child)]:lg:mb-3">
-            <h2 className="text-headings-5 lg:text-headings-2 text-gray-850">
+            <h2 className="text-headings-5 lg:text-headings-2 text-gray-850 dark:text-white">
               {title}
             </h2>
-            <p className="text-body-p4-regular lg:text-body-p2-regular text-green-750">
+            <p className="text-body-p4-regular lg:text-body-p2-regular text-green-750 dark:text-gray-150">
               {subtitle}
             </p>
           </div>

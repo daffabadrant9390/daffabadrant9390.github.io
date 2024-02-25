@@ -73,3 +73,12 @@ export const SOCIAL_MEDIA_DATA = [
 
 export const PROFILE_NAME = 'M. Daffa Badran Thoriq';
 export const PROFILE_SHORT_DESC = 'Web Developer | UI/UX Design | Data Analyst';
+
+export const QUERY_PARAMS = {
+  THEME: 'theme',
+};
+
+export const THEME_OPTIONS = {
+  LIGHT: 'light',
+  DARK: 'dark',
+};

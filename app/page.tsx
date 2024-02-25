@@ -31,7 +31,7 @@ export default function Home() {
   ]);
 
   return (
-    <main className={`${!!isDarkMode && 'dark'}`}>
+    <div className={`${!!isDarkMode && 'dark'}`}>
       <Navbar
         menuData={generatedNavbarMenuData}
         isDarkMode={isDarkMode}
@@ -46,8 +46,9 @@ export default function Home() {
         aboutMeRef={aboutMeSectionRef}
         projectsRef={myProjectsSectionRef}
         collaborationsRef={collaborationsSectionRef}
+        isDarkMode={isDarkMode}
       />
       <Footer />
-    </main>
+    </div>
   );
 }

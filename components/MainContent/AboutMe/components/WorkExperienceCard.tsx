@@ -29,15 +29,17 @@ const WorkExperienceCard = ({
     <div
       className={`w-full sm:max-w-[400px] md:max-w-[420px] p-3 lg:p-4 rounded-md ${
         workingStatus === 'ACTIVE'
-          ? 'bg-gray-650'
-          : 'bg-gray-100 border border-gray-50'
+          ? 'bg-gray-650 dark:bg-orange-750'
+          : 'bg-white border border-gray-550 dark:bg-gray-550'
       } flex flex-col gap-2 hover:shadow-md transition-all duration-300`}
     >
       {/* Company Name, Role Name and Working Year */}
       <div className="w-full flex flex-col gap-1">
         <h5
           className={`text-body-p2-semibold lg:text-body-p1-semibold ${
-            workingStatus === 'ACTIVE' ? 'text-white' : 'text-black'
+            workingStatus === 'ACTIVE'
+              ? 'text-white dark:text-black'
+              : 'text-black'
           } w-full text-left`}
         >
           {roleName}
@@ -45,13 +47,17 @@ const WorkExperienceCard = ({
         <div className="flex flex-row items-center justify-start flex-wrap">
           <p
             className={`text-body-p3-semibold lg:text-body-p2-semibold ${
-              workingStatus === 'ACTIVE' ? 'text-white' : 'text-gray-850'
+              workingStatus === 'ACTIVE'
+                ? 'text-white dark:text-black'
+                : 'text-gray-850'
             }`}
           >
             {companyName}
             <span
               className={`text-body-p4-regular lg:text-body-p3-regular ${
-                workingStatus === 'ACTIVE' ? 'text-gray-50' : 'text-gray-850'
+                workingStatus === 'ACTIVE'
+                  ? 'text-gray-50 dark:text-black'
+                  : 'text-gray-850'
               } ml-[2px] lg:ml-[4px]`}
             >
               {` - (${startYear} - ${endYear})`}
@@ -63,13 +69,15 @@ const WorkExperienceCard = ({
       <ul
         className={`flex flex-col list-disc list-outside ${
           workingStatus === 'ACTIVE'
-            ? 'marker:text-white'
+            ? 'marker:text-white dark:marker:text-gray-850'
             : 'marker:text-gray-850'
         }`}
       >
         <p
           className={`text-body-p4-semibold lg:text-body-p3-semibold ${
-            workingStatus === 'ACTIVE' ? 'text-white' : 'text-gray-850'
+            workingStatus === 'ACTIVE'
+              ? 'text-white dark:text-black'
+              : 'text-gray-850'
           } mb-[2px] lg:mb-[4px]`}
         >
           Key Responsibilities :
@@ -77,7 +85,9 @@ const WorkExperienceCard = ({
         {summaries.map((summary, idx) => (
           <li
             className={`text-body-p4-regular lg:text-body-p3-regular ml-4 ${
-              workingStatus === 'ACTIVE' ? 'text-gray-50' : 'text-gray-850'
+              workingStatus === 'ACTIVE'
+                ? 'text-gray-50 dark:text-black'
+                : 'text-gray-850'
             }`}
             key={`work-responsibility-${idx}`}
           >
@@ -89,13 +99,17 @@ const WorkExperienceCard = ({
       {/* Tech Stacks */}
       <p
         className={`text-body-p4-semibold lg:text-body-p3-semibold ${
-          workingStatus === 'ACTIVE' ? 'text-white' : 'text-black'
+          workingStatus === 'ACTIVE'
+            ? 'text-white dark:text-black'
+            : 'text-black'
         }`}
       >
         {`Tech Stacks : `}
         <span
           className={`text-body-p4-regular lg:text-body-p3-regular ${
-            workingStatus === 'ACTIVE' ? 'text-gray-50' : 'text-gray-850'
+            workingStatus === 'ACTIVE'
+              ? 'text-gray-50 dark:text-black'
+              : 'text-gray-850'
           }`}
         >
           {generatedTechStacks}

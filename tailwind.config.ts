@@ -19,6 +19,7 @@ const config: Config = {
         'bg-hero': 'url(/assets/bg-hero.jpg)',
         'bg-hero-50-opacity': 'url(/assets/bg-hero-50-opacity.jpg)',
         'bg-about-me': 'url(/assets/bg-about-me.jpg)',
+        'bg-about-me-transparent': 'url(/assets/bg-about-me-transparent.png)',
         'bg-tree': 'url(/assets/bg-tree.jpg)',
         'bg-collaborations': 'url(/assets/bg-collaborations.jpg)',
         'bg-project-1': 'url(/assets/bg-project-1.jpg)',
@@ -36,10 +37,13 @@ const config: Config = {
       },
       colors: {
         blue: {
+          450: '#445470',
+          550: '#586187',
           650: '#404D63',
           750: '#284B63',
           790: '#25475E',
           850: '#2D3142',
+          950: '#14213D',
         },
         gray: {
           50: '#D9D9D9',
@@ -51,6 +55,9 @@ const config: Config = {
           950: '#2B2B2B',
         },
         orange: {
+          150: '#F37F4C',
+          250: '#F26B30',
+          750: '#F77F00',
           850: '#FCA311',
           950: '#E28D00',
         },

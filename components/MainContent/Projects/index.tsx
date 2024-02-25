@@ -10,9 +10,10 @@ const MAX_SHOW_PROJECTS = 4;
 
 type ProjectsSectionProps = {
   projectsRef: RefObject<HTMLDivElement>;
+  isDarkMode: boolean;
 };
 
-const Projects = ({ projectsRef }: ProjectsSectionProps) => {
+const Projects = ({ projectsRef, isDarkMode }: ProjectsSectionProps) => {
   const router = useRouter();
 
   const finalProjectsData = useMemo(() => {
@@ -27,7 +28,6 @@ const Projects = ({ projectsRef }: ProjectsSectionProps) => {
       title="Latest Projects"
       subtitle="Platea cum diam lobortis sed in. In praesent magnis venenatis non viverra nisi."
       theme="light"
-      // backgroundImage={'bg-bg-tree'}
       customRefWrapper={projectsRef}
     >
       <div className="w-full flex flex-col items-start gap-6 lg:gap-10">
@@ -51,7 +51,7 @@ const Projects = ({ projectsRef }: ProjectsSectionProps) => {
                 linkToGithub={linkToGithub}
                 linkToProject={linkToProject}
                 projectType={projectType}
-                theme="light" //TODO: Adjust the theme options
+                theme={!!isDarkMode ? 'dark' : 'light'}
               />
             );
           })}
@@ -59,8 +59,12 @@ const Projects = ({ projectsRef }: ProjectsSectionProps) => {
 
         {projectsData.length > MAX_SHOW_PROJECTS && (
           <button
-            className="w-full rounded-sm bg-gray-50 py-3 lg:py-4 border-none text-body-p2-semibold lg:text-body-p1-semibold text-gray-850 hover:bg-gray-150 hover:text-black transition-all duration-300"
-            onClick={() => router.push('/my-projects')}
+            className="w-full rounded-sm bg-gray-50 dark:bg-gray-300 py-3 lg:py-4 border-none text-body-p2-semibold lg:text-body-p1-semibold text-gray-850 hover:bg-gray-150 dark:hover:bg-gray-400 hover:text-black transition-all duration-300"
+            onClick={() =>
+              router.push(
+                `/my-projects?theme=${!!isDarkMode ? 'dark' : 'light'}`
+              )
+            }
           >
             Show all projects
           </button>

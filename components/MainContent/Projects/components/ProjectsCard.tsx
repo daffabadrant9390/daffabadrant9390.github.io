@@ -27,7 +27,7 @@ const ProjectsCard = ({
   theme = 'light',
 }: ProjectsCardProps) => {
   return (
-    <div className="w-full h-full p-4 lg:p-6 rounded-lg bg-white hover:shadow-xl transition-all duration-300 border border-gray-550">
+    <div className="w-full h-full p-4 lg:p-6 rounded-lg bg-white dark:bg-gray-650 hover:shadow-xl transition-all duration-300 border border-gray-550 dark:border-blue-550">
       <div className="flex flex-col gap-4 lg:gap-6">
         <div className="flex flex-col gap-3 lg:gap-4">
           <div className="relative flex-shrink-0 w-full h-[240px] shadow-lg">
@@ -63,10 +63,10 @@ const ProjectsCard = ({
         {/* Title, Description & Buttons */}
         <div className="w-full flex flex-col">
           <div className="flex flex-col mb-5 lg:mb-6 gap-3 lg:gap-4 text-left">
-            <h4 className="text-headings-5 lg:text-headings-4 text-blue-850">
+            <h4 className="text-headings-5 lg:text-headings-4 text-blue-850 dark:text-white">
               {title}
             </h4>
-            <p className="text-body-p3-regular lg:text-body-p2-regular text-gray-850">
+            <p className="text-body-p3-regular lg:text-body-p2-regular text-gray-850 dark:text-gray-50">
               {description}
             </p>
           </div>
@@ -95,7 +95,7 @@ const ProjectsCard = ({
             <Button
               theme="light"
               size="medium"
-              type="secondary"
+              type={theme === 'light' ? 'secondary' : 'tertiary'}
               iconElement={
                 <FontAwesomeIcon
                   icon={faGithub}
@@ -105,7 +105,7 @@ const ProjectsCard = ({
               }
               onClick={() => {
                 console.log('REDIRECT TO PROJECT');
-                window.open(linkToProject, '_blank');
+                window.open(linkToGithub, '_blank');
               }}
               fullWidth={true}
             >

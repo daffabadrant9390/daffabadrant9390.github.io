@@ -27,19 +27,11 @@ const Button = ({
       className={`
         ${type === 'outlined' ? 'outline' : 'outline-none'}
         ${
-          type === 'primary' && theme === 'light'
-            ? 'btn-primary-light'
-            : 'btn-primary-dark'
-        }
-        ${
-          type === 'secondary' && theme === 'light'
-            ? 'btn-secondary-light'
-            : 'btn-secondary-dark'
-        }
-        ${
-          type === 'tertiary' && theme === 'light'
-            ? 'btn-tertiary-light'
-            : 'btn-tertiary-dark'
+          type === 'primary'
+            ? 'btn-primary'
+            : type === 'secondary'
+            ? 'btn-secondary'
+            : 'btn-tertiary'
         }
         ${
           type === 'primary' || type === 'secondary'
