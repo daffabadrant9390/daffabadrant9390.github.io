@@ -1,4 +1,5 @@
 import { RefObject } from 'react';
+import { THEME_OPTIONS } from './constants';
 
 export type NavigationDataItem = {
   title: string;
@@ -39,4 +40,16 @@ export const generateNavbarData = ({
   });
 
   return finalResultList;
+};
+
+export const generateIsDarkModeState = ({
+  lsThemeValue,
+}: {
+  lsThemeValue: string;
+}) => {
+  console.log('lsThemeValue: ', lsThemeValue);
+  if (!lsThemeValue) return false;
+
+  if (lsThemeValue === THEME_OPTIONS.DARK) return true;
+  else return false;
 };

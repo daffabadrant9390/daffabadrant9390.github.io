@@ -13,11 +13,12 @@ import {
   faMoon,
   faSun,
 } from '@fortawesome/free-solid-svg-icons';
+import DarkModeToggler from './components/DarkModeToggler';
 
 type NavbarProps = {
   menuData: NavigationDataItem[];
   isDarkMode: boolean;
-  onUpdateDarkModeState: () => void;
+  onUpdateDarkModeState: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const Navbar = ({
@@ -169,21 +170,18 @@ const Navbar = ({
         </ul>
 
         <div className="hidden lg:flex flex-row items-center justify-center">
-          <FontAwesomeIcon
-            icon={isDarkMode ? faSun : faMoon}
-            color={isDarkMode ? 'yellow' : 'gray'}
-            className="w-10 h-10 cursor-pointer"
-            onClick={onUpdateDarkModeState}
+          <DarkModeToggler
+            isDarkMode={isDarkMode}
+            onUpdateDarkModeState={onUpdateDarkModeState}
           />
         </div>
 
         <div className="flex flex-row items-center gap-5 sm:gap-8 lg:hidden">
-          <FontAwesomeIcon
-            icon={isDarkMode ? faSun : faMoon}
-            color={isDarkMode ? 'yellow' : 'gray'}
-            className="w-8 h-8 cursor-pointer"
-            onClick={onUpdateDarkModeState}
+          <DarkModeToggler
+            isDarkMode={isDarkMode}
+            onUpdateDarkModeState={onUpdateDarkModeState}
           />
+
           {/* Mobile Navbar Burger Menu */}
           {/* TODO: Currently one of the icon should be wrapped with div. Need to find propper solution */}
           {!isMobileNavbarOpen ? (

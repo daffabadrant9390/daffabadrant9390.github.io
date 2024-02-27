@@ -4,28 +4,29 @@ import Button from '@/components/Button';
 import CommonContentLayout from '@/components/CommonContentLayout';
 import ProjectsCard from '@/components/MainContent/Projects/components/ProjectsCard';
 import { projectsData } from '@/components/MainContent/Projects/data/projectsData';
-import { QUERY_PARAMS, THEME_OPTIONS } from '@/constants';
+import { LS_KEYS, QUERY_PARAMS, THEME_OPTIONS } from '@/constants';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { useMemo } from 'react';
+import { useRouter } from 'next/navigation';
+import { useEffect, useMemo, useState } from 'react';
 
 const MyProjectsPage = () => {
   const router = useRouter();
-  const searchParams = useSearchParams();
 
-  const currentThemeState = (searchParams.get(QUERY_PARAMS.THEME) ||
-    THEME_OPTIONS.LIGHT) as string;
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
-  const isDarkModeActive = useMemo(() => {
-    return currentThemeState === THEME_OPTIONS.DARK;
-  }, [currentThemeState]);
+  useEffect(() => {
+    const lsThemeValue =
+      localStorage.getItem(LS_KEYS.THEME) || THEME_OPTIONS.DARK;
+
+    setIsDarkMode(lsThemeValue === THEME_OPTIONS.DARK);
+  }, []);
 
   const handleClickBack = () => {
     router.push('/');
   };
   return (
-    <main className={`${isDarkModeActive && 'dark'}`}>
+    <main className={`${isDarkMode && 'dark'}`}>
       <section className="bg-white dark:bg-blue-850">
         <div className="max-container padding-container py-[40px] lg:py-[80px]">
           <div className="flex flex-col gap-6 lg:gap-8">
@@ -71,7 +72,7 @@ const MyProjectsPage = () => {
                       linkToGithub={linkToGithub}
                       linkToProject={linkToProject}
                       projectType={projectType}
-                      theme={!!isDarkModeActive ? 'dark' : 'light'}
+                      theme={!!isDarkMode ? 'dark' : 'light'}
                     />
                   );
                 })}

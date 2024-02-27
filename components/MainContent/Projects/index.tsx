@@ -60,11 +60,7 @@ const Projects = ({ projectsRef, isDarkMode }: ProjectsSectionProps) => {
         {projectsData.length > MAX_SHOW_PROJECTS && (
           <button
             className="w-full rounded-sm bg-gray-50 dark:bg-gray-300 py-3 lg:py-4 border-none text-body-p2-semibold lg:text-body-p1-semibold text-gray-850 hover:bg-gray-150 dark:hover:bg-gray-400 hover:text-black transition-all duration-300"
-            onClick={() =>
-              router.push(
-                `/my-projects?theme=${!!isDarkMode ? 'dark' : 'light'}`
-              )
-            }
+            onClick={() => router.push(`/my-projects`)}
           >
             Show all projects
           </button>

@@ -82,3 +82,7 @@ export const THEME_OPTIONS = {
   LIGHT: 'light',
   DARK: 'dark',
 };
+
+export const LS_KEYS = {
+  THEME: 'THEME',
+};

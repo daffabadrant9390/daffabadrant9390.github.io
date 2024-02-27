@@ -4,12 +4,19 @@ import Footer from '@/components/Footer';
 import Hero from '@/components/Hero';
 import MainContent from '@/components/MainContent';
 import Navbar from '@/components/Navbar';
-import { generateNavbarData } from '@/helpers';
-import Image from 'next/image';
-import { useMemo, useRef, useState } from 'react';
+import { LS_KEYS, THEME_OPTIONS } from '@/constants';
+import { generateIsDarkModeState, generateNavbarData } from '@/helpers';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const lsThemeValueState =
+      localStorage.getItem(LS_KEYS.THEME) || THEME_OPTIONS.DARK;
+    console.log('lsThemeValueState: ', lsThemeValueState);
+    setIsDarkMode(generateIsDarkModeState({ lsThemeValue: lsThemeValueState }));
+  }, []);
 
   const homeSectionRef = useRef<HTMLDivElement>(null);
   const aboutMeSectionRef = useRef<HTMLDivElement>(null);
@@ -35,7 +42,15 @@ export default function Home() {
       <Navbar
         menuData={generatedNavbarMenuData}
         isDarkMode={isDarkMode}
-        onUpdateDarkModeState={() => setIsDarkMode(!isDarkMode)}
+        onUpdateDarkModeState={(e: React.ChangeEvent<HTMLInputElement>) => {
+          setIsDarkMode(!isDarkMode);
+
+          if (!!e.target.checked) {
+            localStorage.setItem(LS_KEYS.THEME, THEME_OPTIONS.DARK);
+          } else {
+            localStorage.setItem(LS_KEYS.THEME, THEME_OPTIONS.LIGHT);
+          }
+        }}
       />
       <Hero
         heroRef={homeSectionRef}
