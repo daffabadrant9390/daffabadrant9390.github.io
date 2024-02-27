@@ -1,8 +1,7 @@
 'use client';
 
 import Button from '@/components/Button';
-import CommonContentLayout from '@/components/CommonContentLayout';
-import ProjectsCard from '@/components/MainContent/Projects/components/ProjectsCard/ProjectsCard';
+import ProjectsCard from '@/components/MainContent/Projects/components/ProjectsCard';
 import { projectsData } from '@/components/MainContent/Projects/data/projectsData';
 import { LS_KEYS, QUERY_PARAMS, THEME_OPTIONS } from '@/constants';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';

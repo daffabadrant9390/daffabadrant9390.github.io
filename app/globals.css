@@ -118,24 +118,6 @@
   .vertical-divider {
     @apply w-0.5 h-8 md:h-10 bg-black;
   }
-
-  .navigation_button {
-    @apply cursor-pointer bg-gray-750 hover:bg-gray-850 transition-all duration-300 absolute px-4 py-2 rounded-lg top-[45%] hidden;
-  }
-
-  .previous_btn {
-    @apply left-3;
-  }
-
-  .next_btn {
-    @apply right-3;
-  }
-
-  .slider_container:hover {
-    .navigation_button {
-      @apply flex flex-row items-center justify-center;
-    }
-  }
 }
 
 .h-hero-section {

@@ -3,7 +3,7 @@
 import CommonContentLayout from '@/components/CommonContentLayout';
 import React, { RefObject, useMemo } from 'react';
 import { projectsData } from './data/projectsData';
-import ProjectsCard from './components/ProjectsCard/ProjectsCard';
+import ProjectsCard from './components/ProjectsCard';
 import { useRouter } from 'next/navigation';
 
 const MAX_SHOW_PROJECTS = 4;
