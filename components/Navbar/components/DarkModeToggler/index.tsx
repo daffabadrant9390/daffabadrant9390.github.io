@@ -16,8 +16,6 @@ const DarkModeToggler = ({
   isDarkMode,
   onUpdateDarkModeState,
 }: DarkModeTogglerProps) => {
-  const hello = THEME_OPTIONS.DARK;
-
   return (
     <div className="dark_mode">
       <input
