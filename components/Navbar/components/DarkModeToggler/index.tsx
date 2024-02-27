@@ -3,9 +3,9 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
-
-import './index.css';
 import { THEME_OPTIONS } from '@/constants';
+
+import styles from './index.module.scss';
 
 type DarkModeTogglerProps = {
   isDarkMode: boolean;
@@ -21,15 +21,15 @@ const DarkModeToggler = ({
   return (
     <div className="dark_mode">
       <input
-        className="dark_mode_input"
+        className={styles.dark_mode_input}
         type="checkbox"
         id="darkmode-toggle"
         onChange={(e) => onUpdateDarkModeState(e)}
         checked={!!isDarkMode}
       />
-      <label className="dark_mode_label" htmlFor="darkmode-toggle">
-        <FontAwesomeIcon icon={faSun} className="sun w-5 h-5 lg:w-6 lg:h-6" />
-        <FontAwesomeIcon icon={faMoon} className="moon w-5 h-5 lg:w-6 lg:h-6" />
+      <label className={styles.dark_mode_label} htmlFor="darkmode-toggle">
+        <FontAwesomeIcon icon={faSun} className={styles.sun} />
+        <FontAwesomeIcon icon={faMoon} className={styles.moon} />
       </label>
     </div>
   );
