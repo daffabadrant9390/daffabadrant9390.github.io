@@ -5,6 +5,7 @@ type ProjectsDataItem = {
   linkToProject: string;
   linkToGithub: string;
   projectType: ProjectType;
+  images: string[];
 };
 
 type ProjectsData = ProjectsDataItem[];
@@ -23,6 +24,12 @@ export const projectsData: ProjectsData = [
     linkToProject: '', //TODO: TBD
     linkToGithub: '', //TODO: TBD
     projectType: 'web-development',
+    images: [
+      '/assets/bg-project-1.jpg',
+      '/assets/bg-project-2.jpg',
+      '/assets/bg-project-3.jpg',
+      '/assets/bg-project-4.jpg',
+    ],
   },
   {
     title: 'Threads Clone Next Js',
@@ -32,6 +39,12 @@ export const projectsData: ProjectsData = [
     linkToProject: '', //TODO: TBD
     linkToGithub: '', //TODO: TBD
     projectType: 'mobile-app-development',
+    images: [
+      '/assets/bg-project-2.jpg',
+      '/assets/bg-project-3.jpg',
+      '/assets/bg-project-4.jpg',
+      '/assets/bg-project-1.jpg',
+    ],
   },
   {
     title: 'Trello V2 Clone Next Js and GPT-4',
@@ -41,6 +54,12 @@ export const projectsData: ProjectsData = [
     linkToProject: '', //TODO: TBD
     linkToGithub: '', //TODO: TBD
     projectType: 'ui-ux-design',
+    images: [
+      '/assets/bg-project-3.jpg',
+      '/assets/bg-project-2.jpg',
+      '/assets/bg-project-1.jpg',
+      '/assets/bg-project-4.jpg',
+    ],
   },
   {
     title: 'Marketplace Price Tracker Next Js',
@@ -50,6 +69,12 @@ export const projectsData: ProjectsData = [
     linkToProject: '', //TODO: TBD
     linkToGithub: '', //TODO: TBD
     projectType: 'data-analytics',
+    images: [
+      '/assets/bg-project-4.jpg',
+      '/assets/bg-project-2.jpg',
+      '/assets/bg-project-3.jpg',
+      '/assets/bg-project-1.jpg',
+    ],
   },
   {
     title: 'Dropbox 2.0 with Next JS',
@@ -59,5 +84,11 @@ export const projectsData: ProjectsData = [
     linkToProject: '', //TODO: TBD
     linkToGithub: '', //TODO: TBD
     projectType: 'web-development',
+    images: [
+      '/assets/bg-project-4.jpg',
+      '/assets/bg-project-3.jpg',
+      '/assets/bg-project-1.jpg',
+      '/assets/bg-project-2.jpg',
+    ],
   },
 ];

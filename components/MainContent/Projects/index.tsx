@@ -3,7 +3,7 @@
 import CommonContentLayout from '@/components/CommonContentLayout';
 import React, { RefObject, useMemo } from 'react';
 import { projectsData } from './data/projectsData';
-import ProjectsCard from './components/ProjectsCard';
+import ProjectsCard from './components/ProjectsCard/ProjectsCard';
 import { useRouter } from 'next/navigation';
 
 const MAX_SHOW_PROJECTS = 4;
@@ -40,6 +40,7 @@ const Projects = ({ projectsRef, isDarkMode }: ProjectsSectionProps) => {
               linkToGithub,
               linkToProject,
               projectType,
+              images,
             } = projectDataItem;
 
             return (
@@ -52,6 +53,7 @@ const Projects = ({ projectsRef, isDarkMode }: ProjectsSectionProps) => {
                 linkToProject={linkToProject}
                 projectType={projectType}
                 theme={!!isDarkMode ? 'dark' : 'light'}
+                images={images || []}
               />
             );
           })}
