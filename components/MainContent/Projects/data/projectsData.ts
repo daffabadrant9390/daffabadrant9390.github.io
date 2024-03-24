@@ -81,7 +81,7 @@ export const projectsData: ProjectsData = [
     description:
       'Nibh egestas sagittis suspendisse aenean. Vulputate amet suscipit vel sollicitudin turpis egestas. Orci maecenas sed morbi aliquet mi posuere nulla lorem. Fames dui sed amet varius dictum eget praesent. Vel eget vivamus in velit tincidunt bibendum nunc.',
     imageUrl: '/assets/bg-project-4.jpg',
-    linkToProject: '', //TODO: TBD
+    linkToProject: '', //TODO: TBD For Now
     linkToGithub: '', //TODO: TBD
     projectType: 'web-development',
     images: [
