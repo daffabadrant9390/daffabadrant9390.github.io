@@ -36,7 +36,7 @@ const Hero = ({ heroRef, aboutMeRef, collaborationsRef }: HeroSectionProps) => {
           {/* Profile Image */}
           <div className="relative flex-shrink-0 w-[180px] h-[180px] md:w-[200px] md:h-[200px] lg:w-[240px] lg:h-[240px]">
             <Image
-              src={'/assets/profile-img-new-large.jpg'}
+              src={'/assets/profile-img-new-small.jpg'}
               alt="Profile Image"
               className="rounded-full shadow-md border-2 border-gray-600 object-cover object-center"
               fill
