@@ -51,6 +51,9 @@ const Collaborations = ({ collaborationsRef }: CollaborationsSectionProps) => {
                     className="w-4 h-4 lg:w-6 lg:h-6"
                   />
                 }
+                onClick={() => {
+                  window.open('mailto:daffabadrant@gmail.com', '_blank');
+                }}
               >
                 Send Message
               </Button>
@@ -68,7 +71,7 @@ const Collaborations = ({ collaborationsRef }: CollaborationsSectionProps) => {
                 }
                 onClick={() => {
                   window.open(
-                    'https://drive.google.com/file/d/1zjG5pKQjtbXOMMBv-3yBSwjHModIHxYL/view?usp=drive_link',
+                    'https://drive.google.com/file/d/1zjG5pKQjtbXOMMBv-3yBSwjHModIHxYL/view?usp=sharing',
                     '_blank'
                   );
                 }}
