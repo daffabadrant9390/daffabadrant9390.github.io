@@ -26,7 +26,7 @@ const MyProjectsPage = () => {
   };
   return (
     <main className={`${isDarkMode && 'dark'}`}>
-      <section className="bg-white dark:bg-blue-850">
+      <section className="bg-white dark:bg-gray-1150">
         <div className="max-container padding-container py-[40px] lg:py-[80px]">
           <div className="flex flex-col gap-6 lg:gap-8">
             {/* Back Button */}
