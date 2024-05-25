@@ -130,7 +130,7 @@ const Navbar = ({
     <div
       className={`w-full ${
         !!isMobileNavbarOpen || !!isPageScrolled ? 'shadow-lg' : 'shadow-none'
-      } sticky top-0 bg-white dark:bg-blue-850 z-40`}
+      } sticky top-0 bg-white dark:bg-gray-1150 z-40`}
     >
       <div
         className={`max-container padding-container flex flex-row items-center justify-between py-3 lg:py-5`}

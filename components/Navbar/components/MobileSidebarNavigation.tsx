@@ -19,7 +19,7 @@ const MobileSidebarNavigation = ({
 }: MobileSidebarNavigationProps) => {
   return (
     <motion.div
-      className="fixed top-[72px] bottom-0 right-0 left-28 xs:left-32 sm:left-56 bg-gray-850 dark:bg-blue-650 lg:hidden origin-right z-50"
+      className="fixed top-[70px] bottom-0 right-0 left-28 xs:left-32 sm:left-56 bg-gray-850 dark:bg-gray-1150 lg:hidden origin-right z-50"
       variants={{
         initial: {
           scaleX: 0,

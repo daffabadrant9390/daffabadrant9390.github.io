@@ -18,7 +18,7 @@ const MainContent = ({
   isDarkMode,
 }: MainContentProps) => {
   return (
-    <main className="bg-white dark:bg-blue-850">
+    <main className="bg-white dark:bg-gray-1150">
       <AboutMe aboutMeRef={aboutMeRef} />
       <SkillsAndInterests />
       <Projects projectsRef={projectsRef} isDarkMode={isDarkMode} />
