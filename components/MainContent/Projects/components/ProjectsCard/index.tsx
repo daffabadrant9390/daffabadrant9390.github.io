@@ -69,9 +69,8 @@ const ProjectsCard = ({
 
           <div className="flex flex-col items-start md:flex-row lg:justify-start gap-3 md:gap-4 lg:gap-5">
             <Button
-              theme="light"
               size="medium"
-              type="primary"
+              type="secondary"
               iconElement={
                 <FontAwesomeIcon
                   icon={faPushed}
@@ -89,13 +88,12 @@ const ProjectsCard = ({
             </Button>
 
             <Button
-              theme="light"
               size="medium"
-              type={theme === 'light' ? 'secondary' : 'tertiary'}
+              type={'tertiary'}
               iconElement={
                 <FontAwesomeIcon
                   icon={faGithub}
-                  color="gray"
+                  color="white"
                   className="w-4 h-4 lg:w-6 lg:h-6"
                 />
               }

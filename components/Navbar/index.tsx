@@ -88,7 +88,7 @@ const Navbar = ({
         });
       },
       {
-        rootMargin: `-72px 0px -${screenHeight - 72}px 0px`,
+        rootMargin: `-0px 0px -${screenHeight - 72}px 0px`,
         threshold: 0,
       }
     );

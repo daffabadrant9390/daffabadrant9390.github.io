@@ -10,12 +10,10 @@ export const generateNavbarData = ({
   homeSectionRef,
   aboutMeSectionRef,
   myProjectsSectionRef,
-  collaborationsSectionRef,
 }: {
   homeSectionRef: RefObject<HTMLDivElement>;
   aboutMeSectionRef: RefObject<HTMLDivElement>;
   myProjectsSectionRef: RefObject<HTMLDivElement>;
-  collaborationsSectionRef: RefObject<HTMLDivElement>;
 }) => {
   const finalResultList = [] as NavigationDataItem[];
 
@@ -32,11 +30,6 @@ export const generateNavbarData = ({
   finalResultList.push({
     title: 'Projects',
     sectionRef: myProjectsSectionRef,
-  });
-
-  finalResultList.push({
-    title: 'Collaborations',
-    sectionRef: collaborationsSectionRef,
   });
 
   return finalResultList;

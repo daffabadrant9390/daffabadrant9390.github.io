@@ -32,11 +32,11 @@ const Hero = ({ heroRef, aboutMeRef, collaborationsRef }: HeroSectionProps) => {
       className="w-full h-hero-section bg-bg-hero-50-opacity bg-no-repeat bg-bottom bg-cover"
     >
       <div className="max-container padding-container h-full flex flex-row items-center justify-center">
-        <div className="flex flex-col-reverse lg:flex-row justify-center items-center text-center [&>*:not(:first-child)]:mb-6 [&>*:not(:last-child)]:lg:mr-8">
+        <div className="flex flex-col-reverse lg:flex-row justify-center items-center text-center lg:text-left [&>*:not(:first-child)]:mb-6 [&>*:not(:last-child)]:lg:mr-8">
           {/* Salutation & Buttons */}
-          <div className="flex flex-col justify-center items-center [&>*:not(:last-child)]:mb-6 [&>*:not(:last-child)]:lg:mb-8">
+          <div className="flex flex-col justify-center items-center [&>*:not(:last-child)]:mb-6">
             {/* Salutation, Name and Short Description */}
-            <div className="w-full flex flex-col [&>*:not(:last-child)]:mb-3 [&>*:not(:last-child)]:lg:mb-[14px]">
+            <div className="w-full flex flex-col [&>*:not(:last-child)]:mb-2 [&>*:not(:last-child)]:lg:mb-[12px]">
               <h2 className="text-headings-4 lg:text-headings-2">
                 Hi👋 I&lsquo;m
               </h2>
@@ -49,11 +49,10 @@ const Hero = ({ heroRef, aboutMeRef, collaborationsRef }: HeroSectionProps) => {
             </div>
 
             {/* Button Get Started */}
-            <div className="flex flex-col md:flex-row [&>*:not(:last-child)]:mb-5 [&>*:not(:last-child)]:md:mb-0 [&>*:not(:last-child)]:md:mr-3 [&>*:not(:last-child)]:lg:mr-6">
+            <div className="w-full flex flex-col md:flex-row [&>*:not(:last-child)]:mb-3 [&>*:not(:last-child)]:md:mb-0 [&>*:not(:last-child)]:md:mr-3 [&>*:not(:last-child)]:lg:mr-5">
               <Button
                 type="primary"
-                theme="light"
-                size="large"
+                size="medium"
                 iconElement={
                   <FontAwesomeIcon
                     icon={faRocket}
@@ -66,8 +65,7 @@ const Hero = ({ heroRef, aboutMeRef, collaborationsRef }: HeroSectionProps) => {
               </Button>
               <Button
                 type="secondary"
-                theme="light"
-                size="large"
+                size="medium"
                 iconElement={
                   <FontAwesomeIcon
                     icon={faFingerprint}

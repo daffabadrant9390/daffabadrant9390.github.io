@@ -32,12 +32,11 @@ const MyProjectsPage = () => {
             {/* Back Button */}
             <Button
               size="large"
-              theme="light"
-              type="tertiary"
+              type="secondary"
               iconElement={
                 <FontAwesomeIcon
                   icon={faArrowLeft}
-                  color="black"
+                  color="white"
                   className="w-5 h-5 lg:w-6 lg:h-6"
                 />
               }

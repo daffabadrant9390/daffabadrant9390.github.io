@@ -42,7 +42,6 @@ const Collaborations = ({ collaborationsRef }: CollaborationsSectionProps) => {
             <div className="mb-5 w-full md:w-fit lg:mb-8 flex flex-col md:flex-row gap-3 md:gap-4 lg:gap-6">
               <Button
                 type="secondary"
-                theme="light"
                 size="large"
                 iconElement={
                   <FontAwesomeIcon
@@ -60,12 +59,11 @@ const Collaborations = ({ collaborationsRef }: CollaborationsSectionProps) => {
 
               <Button
                 type="tertiary"
-                theme="light"
                 size="large"
                 iconElement={
                   <FontAwesomeIcon
                     icon={faPaperclip}
-                    color="gray"
+                    color="white"
                     className="w-4 h-4 lg:w-6 lg:h-6"
                   />
                 }
