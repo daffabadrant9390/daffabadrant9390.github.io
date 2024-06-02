@@ -32,7 +32,7 @@ const Hero = ({ heroRef, aboutMeRef, collaborationsRef }: HeroSectionProps) => {
       className="w-full h-hero-section bg-bg-hero-50-opacity bg-no-repeat bg-bottom bg-cover"
     >
       <div className="max-container padding-container h-full flex flex-row items-center justify-center">
-        <div className="flex flex-col-reverse lg:flex-row justify-center items-center text-center lg:text-left [&>*:not(:first-child)]:mb-6 [&>*:not(:last-child)]:lg:mr-8">
+        <div className="flex flex-col-reverse lg:flex-row justify-center items-center text-center lg:text-left [&>*:not(:first-child)]:mb-6 [&>*:not(:first-child)]:lg:mb-0 [&>*:not(:last-child)]:lg:mr-8">
           {/* Salutation & Buttons */}
           <div className="flex flex-col justify-center items-center [&>*:not(:last-child)]:mb-6">
             {/* Salutation, Name and Short Description */}

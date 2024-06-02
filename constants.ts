@@ -32,12 +32,12 @@ export const SKILLSET_EXPERTISE_DATA = [
     description:
       'Nunc viverra tortor ullamcorper et in tristique elementum. Quis leo vel sed euismod ultrices sit dui cursus.',
   },
-  {
-    iconUrl: '/assets/app-development.png',
-    title: 'Mobile App',
-    description:
-      'Nunc viverra tortor ullamcorper et in tristique elementum. Quis leo vel sed euismod ultrices sit dui cursus. Molestie non augue massa aliquam viverra.',
-  },
+  // {
+  //   iconUrl: '/assets/app-development.png',
+  //   title: 'Mobile App',
+  //   description:
+  //     'Nunc viverra tortor ullamcorper et in tristique elementum. Quis leo vel sed euismod ultrices sit dui cursus. Molestie non augue massa aliquam viverra.',
+  // },
 ];
 
 export const SOCIAL_MEDIA = {
