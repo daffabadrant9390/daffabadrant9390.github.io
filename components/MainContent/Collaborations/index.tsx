@@ -69,7 +69,7 @@ const Collaborations = ({ collaborationsRef }: CollaborationsSectionProps) => {
                 }
                 onClick={() => {
                   window.open(
-                    'https://drive.google.com/file/d/1zjG5pKQjtbXOMMBv-3yBSwjHModIHxYL/view?usp=sharing',
+                    'https://drive.google.com/file/d/1R__ImSdwki7r_9r373lh8nFsOIKmcKHs/view?usp=sharing',
                     '_blank'
                   );
                 }}
