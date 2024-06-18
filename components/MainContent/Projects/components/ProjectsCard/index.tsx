@@ -4,9 +4,11 @@ import Button from '@/components/Button';
 import { ThemesOption } from '@/types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPushed, faGithub } from '@fortawesome/free-brands-svg-icons';
-import { ProjectType } from '../../data/projectsData';
+import { ProjectType, projectsData } from '../../data/projectsData';
 import { useState } from 'react';
 import SliderImages from './SliderImages';
+import Image from 'next/image';
+import { ProjectLabel } from './ProjectLabel';
 
 type ProjectsCardProps = {
   title: string;
@@ -30,52 +32,47 @@ const ProjectsCard = ({
   images,
 }: ProjectsCardProps) => {
   return (
-    <div className="w-full h-full p-4 lg:p-6 rounded-lg bg-white dark:bg-gray-650 hover:shadow-xl transition-all duration-300 border border-gray-550 dark:border-blue-550">
-      <div className="flex flex-col gap-4 lg:gap-6">
-        <div className="flex flex-col gap-3 lg:gap-4">
-          <SliderImages images={images} />
-          <span
-            className={`w-fit px-2 py-[2px] lg:px-4 rounded-sm text-body-p5-regular lg:text-body-p4-regular
-              ${
-                projectType === 'web-development'
-                  ? 'bg-red-300 text-red-700 border border-red-800'
-                  : projectType === 'data-analytics'
-                  ? 'bg-green-300 text-green-700 border border-green-800'
-                  : projectType === 'mobile-app-development'
-                  ? 'bg-blue-300 text-blue-700 border border-blue-800'
-                  : 'bg-purple-300 text-purple-700 border border-purple-800'
-              }`}
-          >
-            {projectType === 'web-development'
-              ? 'Web Development'
-              : projectType === 'data-analytics'
-              ? 'Data Analytics'
-              : projectType === 'mobile-app-development'
-              ? 'Mobile App Development'
-              : 'UI/UX Design'}
-          </span>
+    <div className="w-full h-full rounded-lg bg-white dark:bg-gray-650 hover:shadow-xl transition-all duration-300 border border-gray-550 dark:border-blue-550 overflow-hidden">
+      <div className="w-full flex flex-col md:flex-row gap-2 md:gap-3 h-full">
+        {/* Image and Slider */}
+        <div className="flex flex-col items-start justify-start gap-3 lg:gap-4">
+          {/* <SliderImages images={images} /> */}
+          <div className="relative flex-shrink-0 w-full md:w-[280px] lg:w-[170px] h-[180px] md:min-h-[180px] lg:min-h-[200px] md:h-full shadow-lg">
+            <Image
+              alt={`image-project`}
+              src={imageUrl}
+              fill
+              className="rounded-t-md md:rounded-none md:rounded-l-md object-cover object-center"
+            />
+          </div>
+          <div className="px-3 md:hidden">
+            <ProjectLabel projectType={projectType} />
+          </div>
         </div>
 
         {/* Title, Description & Buttons */}
-        <div className="w-full flex flex-col">
-          <div className="flex flex-col mb-5 lg:mb-6 gap-3 lg:gap-4 text-left">
-            <h4 className="text-headings-5 lg:text-headings-4 text-blue-850 dark:text-white">
+        <div className="w-full flex flex-col items-start justify-start px-3 pb-4 md:pl-0 md:pt-4 [&>*:not(:last-child)]:mb-3">
+          <div className="hidden md:block">
+            <ProjectLabel projectType={projectType} />
+          </div>
+          <div className="flex flex-col mb-2 md:mb-3 text-left">
+            <h4 className="text-headings-6 text-blue-850 dark:text-white mb-[4px] md:mb-[8px]">
               {title}
             </h4>
-            <p className="text-body-p3-regular lg:text-body-p2-regular text-gray-850 dark:text-gray-50">
+            <p className="text-body-p4-regular lg:text-body-p3-regular text-gray-850 dark:text-gray-50">
               {description}
             </p>
           </div>
 
-          <div className="flex flex-col items-start md:flex-row lg:justify-start gap-3 md:gap-4 lg:gap-5">
+          <div className="flex flex-col items-start md:flex-row lg:justify-start gap-2 md:gap-3 w-full">
             <Button
-              size="medium"
+              size="small"
               type="secondary"
               iconElement={
                 <FontAwesomeIcon
                   icon={faPushed}
                   color="white"
-                  className="w-4 h-4 lg:w-6 lg:h-6"
+                  className="w-4 h-4 lg:w-5 lg:h-5"
                 />
               }
               fullWidth={true}
@@ -84,17 +81,17 @@ const ProjectsCard = ({
                 window.open(linkToProject, '_blank');
               }}
             >
-              Open Project
+              Live Demo
             </Button>
 
             <Button
-              size="medium"
+              size="small"
               type={'tertiary'}
               iconElement={
                 <FontAwesomeIcon
                   icon={faGithub}
                   color="white"
-                  className="w-4 h-4 lg:w-6 lg:h-6"
+                  className="w-4 h-4 lg:w-5 lg:h-5"
                 />
               }
               onClick={() => {

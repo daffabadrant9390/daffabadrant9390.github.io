@@ -31,7 +31,7 @@ const Projects = ({ projectsRef, isDarkMode }: ProjectsSectionProps) => {
       customRefWrapper={projectsRef}
     >
       <div className="w-full flex flex-col items-start gap-6 lg:gap-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-6">
           {finalProjectsData.map((projectDataItem, idx) => {
             const {
               title,

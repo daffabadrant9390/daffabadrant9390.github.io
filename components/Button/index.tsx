@@ -36,19 +36,21 @@ const Button = ({
         font-semibold
         ${
           size === 'small'
-            ? 'px-5 h-[40px]'
+            ? 'px-2 h-[40px]'
             : size === 'medium'
-            ? 'px-6 h-[48px]'
-            : 'px-7 h-[52px]'
+            ? 'px-3 h-[48px]'
+            : 'px-4 h-[52px]'
         }
         ${fullWidth && 'w-full'}
-        flex flex-row items-center justify-center gap-2 md:gap-3
+        flex flex-row items-center justify-center gap-2
         ${customClassName}
       `}
       onClick={onClick}
     >
       {!!iconElement && iconElement}
-      {children}
+      <span className="text-body-p4-semibold text-left inline-block">
+        {children}
+      </span>
     </button>
   );
 };
