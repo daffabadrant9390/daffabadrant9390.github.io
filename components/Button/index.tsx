@@ -3,7 +3,6 @@
 type ButtonProps = {
   type: 'primary' | 'secondary' | 'tertiary' | 'outlined';
   size: 'small' | 'medium' | 'large';
-  theme: 'light' | 'dark';
   children: React.ReactNode;
   fullWidth?: boolean;
   iconElement?: JSX.Element;
@@ -14,7 +13,6 @@ type ButtonProps = {
 const Button = ({
   type,
   size,
-  theme,
   children,
   fullWidth,
   iconElement,
@@ -33,28 +31,26 @@ const Button = ({
             ? 'btn-secondary'
             : 'btn-tertiary'
         }
-        ${
-          type === 'primary' || type === 'secondary'
-            ? 'text-white'
-            : 'text-gray-850'
-        }
+        text-white
         rounded
         font-semibold
         ${
           size === 'small'
-            ? 'px-6 py-1 lg:py-2'
+            ? 'px-2 h-[40px]'
             : size === 'medium'
-            ? 'px-7 py-2 lg:py-3'
-            : 'px-6 lg:px-8 py-2 md:py-3 lg:py-4'
+            ? 'px-3 h-[48px]'
+            : 'px-4 h-[52px]'
         }
         ${fullWidth && 'w-full'}
-        flex flex-row items-center justify-center gap-3 md:gap-4 lg:gap-5
+        flex flex-row items-center justify-center gap-2
         ${customClassName}
       `}
       onClick={onClick}
     >
       {!!iconElement && iconElement}
-      {children}
+      <span className="text-body-p4-semibold text-left inline-block">
+        {children}
+      </span>
     </button>
   );
 };

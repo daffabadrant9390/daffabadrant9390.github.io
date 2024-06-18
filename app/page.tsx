@@ -28,14 +28,8 @@ export default function Home() {
       homeSectionRef,
       aboutMeSectionRef,
       myProjectsSectionRef,
-      collaborationsSectionRef,
     });
-  }, [
-    homeSectionRef,
-    aboutMeSectionRef,
-    myProjectsSectionRef,
-    collaborationsSectionRef,
-  ]);
+  }, [homeSectionRef, aboutMeSectionRef, myProjectsSectionRef]);
 
   return (
     <div className={`${!!isDarkMode && 'dark'}`}>

@@ -42,7 +42,6 @@ const Collaborations = ({ collaborationsRef }: CollaborationsSectionProps) => {
             <div className="mb-5 w-full md:w-fit lg:mb-8 flex flex-col md:flex-row gap-3 md:gap-4 lg:gap-6">
               <Button
                 type="secondary"
-                theme="light"
                 size="large"
                 iconElement={
                   <FontAwesomeIcon
@@ -60,18 +59,17 @@ const Collaborations = ({ collaborationsRef }: CollaborationsSectionProps) => {
 
               <Button
                 type="tertiary"
-                theme="light"
                 size="large"
                 iconElement={
                   <FontAwesomeIcon
                     icon={faPaperclip}
-                    color="gray"
+                    color="white"
                     className="w-4 h-4 lg:w-6 lg:h-6"
                   />
                 }
                 onClick={() => {
                   window.open(
-                    'https://drive.google.com/file/d/1zjG5pKQjtbXOMMBv-3yBSwjHModIHxYL/view?usp=sharing',
+                    'https://drive.google.com/file/d/1R__ImSdwki7r_9r373lh8nFsOIKmcKHs/view?usp=sharing',
                     '_blank'
                   );
                 }}

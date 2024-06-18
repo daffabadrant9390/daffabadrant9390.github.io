@@ -88,7 +88,7 @@ const Navbar = ({
         });
       },
       {
-        rootMargin: `-72px 0px -${screenHeight - 72}px 0px`,
+        rootMargin: `-0px 0px -${screenHeight - 72}px 0px`,
         threshold: 0,
       }
     );
@@ -184,28 +184,30 @@ const Navbar = ({
 
           {/* Mobile Navbar Burger Menu */}
           {/* TODO: Currently one of the icon should be wrapped with div. Need to find propper solution */}
-          {!isMobileNavbarOpen ? (
-            <div className="relative w-6 h-6 flex-shrink-0">
+          {!!Array.isArray(menuData) &&
+            !!menuData.length &&
+            (!isMobileNavbarOpen ? (
+              <div className="relative w-6 h-6 flex-shrink-0">
+                <FontAwesomeIcon
+                  icon={faBarsStaggered}
+                  color={!!isDarkMode ? 'white' : 'black'}
+                  className="w-6 h-6 lg:hidden"
+                  id="close-btn-mobile"
+                  onClick={() => {
+                    setIsMobileNavbarOpen(true);
+                  }}
+                />
+              </div>
+            ) : (
               <FontAwesomeIcon
-                icon={faBarsStaggered}
+                icon={faCircleXmark}
                 color={!!isDarkMode ? 'white' : 'black'}
                 className="w-6 h-6 lg:hidden"
-                id="close-btn-mobile"
                 onClick={() => {
-                  setIsMobileNavbarOpen(true);
+                  setIsMobileNavbarOpen(false);
                 }}
               />
-            </div>
-          ) : (
-            <FontAwesomeIcon
-              icon={faCircleXmark}
-              color={!!isDarkMode ? 'white' : 'black'}
-              className="w-6 h-6 lg:hidden"
-              onClick={() => {
-                setIsMobileNavbarOpen(false);
-              }}
-            />
-          )}
+            ))}
         </div>
       </div>
       {/* Mobile Navbar List Item */}
