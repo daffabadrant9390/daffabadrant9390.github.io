@@ -32,7 +32,7 @@ const ProjectsCard = ({
   images,
 }: ProjectsCardProps) => {
   return (
-    <div className="w-full h-[400px] rounded-lg bg-white dark:bg-gray-650 hover:shadow-xl transition-all duration-300 border border-gray-550 dark:border-blue-550 overflow-hidden">
+    <div className="w-full h-max rounded-lg bg-white dark:bg-gray-650 hover:shadow-xl transition-all duration-300 border border-gray-550 dark:border-blue-550 overflow-hidden">
       <div className="w-full flex flex-col md:flex-row gap-2 md:gap-3 h-full">
         {/* Image and Slider */}
         {/* <div className="flex flex-col items-start justify-start gap-3 lg:gap-4">
