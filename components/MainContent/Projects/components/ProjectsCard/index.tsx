@@ -35,8 +35,7 @@ const ProjectsCard = ({
     <div className="w-full h-full rounded-lg bg-white dark:bg-gray-650 hover:shadow-xl transition-all duration-300 border border-gray-550 dark:border-blue-550 overflow-hidden">
       <div className="w-full flex flex-col md:flex-row gap-2 md:gap-3 h-full">
         {/* Image and Slider */}
-        <div className="flex flex-col items-start justify-start gap-3 lg:gap-4">
-          {/* <SliderImages images={images} /> */}
+        {/* <div className="flex flex-col items-start justify-start gap-3 lg:gap-4">
           <div className="relative flex-shrink-0 w-full md:w-[280px] lg:w-[170px] h-[180px] md:min-h-[180px] lg:min-h-[200px] md:h-full shadow-lg">
             <Image
               alt={`image-project`}
@@ -48,7 +47,7 @@ const ProjectsCard = ({
           <div className="px-3 md:hidden">
             <ProjectLabel projectType={projectType} />
           </div>
-        </div>
+        </div> */}
 
         {/* Title, Description & Buttons */}
         <div className="w-full flex flex-col items-start justify-start px-3 pb-4 md:pl-0 md:pt-4 [&>*:not(:last-child)]:mb-3">
